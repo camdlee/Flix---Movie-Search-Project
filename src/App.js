@@ -1,23 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import Nav from './components/Nav'
+import Home from './views/Home';
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
+
+
+
+// export default function App() {
+//   //setting up hooks
+//   const[name, setName] = useState('')
+//   const[age, setAge] = useState()
+
+//   const addOne = () => {
+//     setAge(age + 1)
+//   }
+//   return (
+//     <BrowserRouter>
+//       <div>
+//         <Nav/>
+//           <Routes>
+//             <Route path='/' element={<Home age={age} addOne={addOne} name={name}/>}/>
+//           </Routes>
+//       </div>
+//     </BrowserRouter>
+//   )
+// }
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
     </div>
   );
 }
