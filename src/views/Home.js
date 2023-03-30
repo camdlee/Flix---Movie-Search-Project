@@ -10,7 +10,9 @@ export default class Home extends Component {
     console.log('I am being rendered')
     return (
       <div>
-        <h1>This is my Capstone Project Homepage</h1>
+        <div>
+          <h1>This is my Capstone Project Homepage</h1>
+        </div>
       </div>
     )
   }

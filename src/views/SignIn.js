@@ -14,6 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase"
+import { useNavigate } from 'react-router-dom';
 
 
 const theme = createTheme();
@@ -22,6 +23,7 @@ export default function SignUp() {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const navigate = useNavigate()
 
     // function to log input types by user on sign in form
     const handleSubmit = (event) => {
@@ -38,7 +40,9 @@ export default function SignUp() {
                 // Signed in 
                 const user = userCredential.user;
                 console.log(user)
-                // ...
+                
+                // redirect to home page
+                navigate('/')
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -92,7 +96,7 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                onChange={(event) => {setEmail(event.target.value)}}
+                onChange={(event) => {setPassword(event.target.value)}}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}

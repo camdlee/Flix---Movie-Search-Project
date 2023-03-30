@@ -36,6 +36,9 @@ export default class Nav extends Component {
                         Sign In
                     </Link>
                 </li>
+                <li className="nav-item">
+                    <AuthState/>
+                </li>
             </ul>
             </div>
         </nav>

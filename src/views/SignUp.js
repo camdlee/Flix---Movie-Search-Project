@@ -12,8 +12,11 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from '../firebase';
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth, db } from '../firebase';
+import { doc, setDoc } from "firebase/firestore";
+import { useNavigate } from 'react-router-dom';
+
 
 
 const theme = createTheme();
@@ -22,6 +25,9 @@ export default function SignUp() {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [name, setName] = useState('')
+    const [user, setUser] = useState('')
+    const navigate = useNavigate()
 
     // function to log input types by user on sign in form
     const handleSubmit = (event) => {
@@ -31,6 +37,9 @@ export default function SignUp() {
         email: data.get('email'),
         password: data.get('password'),
         });
+        
+        console.log(email)
+        console.log(password)
 
         //function to create user from email and password inputs
         createUserWithEmailAndPassword(auth, email, password)
@@ -38,8 +47,20 @@ export default function SignUp() {
                 // Signed in 
                 const user = userCredential.user;
                 console.log(user)
-                // ...
+                updateProfile(user, {
+                    displayName: name
+                })
+                // adding data to user
+                const data = {
+                    uid: user.uid,
+                    email: user.email
+                }
+                setUser(data)
+
+                // redirect to homme page
+                navigate('/')
             })
+
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
@@ -51,6 +72,17 @@ export default function SignUp() {
             });
 
     };
+
+    // function to upload user to firebase
+    // useEffect(() => {
+    //     const addUserToFirebase = async () = {
+    //         await setDoc(doc(db, "users", user.uid),{
+    //             uid: user.uid,
+    //             email: user.email
+    //         })
+    //     }
+    // }, [user])
+
 
     // returning jsx to show page
     return (
@@ -82,6 +114,7 @@ export default function SignUp() {
                     id="firstName"
                     label="First Name"
                     autoFocus
+                    onChange={(event) => {setName(event.target.value)}}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -114,14 +147,10 @@ export default function SignUp() {
                     type="password"
                     id="password"
                     autoComplete="new-password"
-                    onChange={(event) => {setEmail(event.target.value)}}
+                    onChange={(event) => {setPassword(event.target.value)}}
                     />
                 </Grid>
                 <Grid item xs={12}>
-                    <FormControlLabel
-                    control={<Checkbox value="allowExtraEmails" color="primary" />}
-                    label="I want to receive inspiration, marketing promotions and updates via email."
-                    />
                 </Grid>
                 </Grid>
                 <Button

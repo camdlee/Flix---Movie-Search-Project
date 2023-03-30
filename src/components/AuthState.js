@@ -13,20 +13,20 @@ export default function AuthState() {
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 setAuthUser(user)
-                // User is signed in, see docs for a list of available properties
-                // https://firebase.google.com/docs/reference/js/firebase.User
+                console.log(user)
                 const uid = user.uid;
                 // ...
             } else {
-                // User is signed out
-                // ...
+              setAuthUser('')
             }  
     }, [authUser])
     })
 
+    //fucntion to handle sign out of user
     const handleSignOut = () => {
         signOut(auth).then(() => {
             // Sign-out successful.
+            // redirect to sign in page
             navigate('/signin')
           }).catch((error) => {
             // An error happened.
@@ -34,6 +34,14 @@ export default function AuthState() {
     }
 
   return (
-    <div>{ authUser ? <><p>Hello, {authUser.displayName}</p> <Button varient='outlines' color='error' onClick={handleSignOut}>Sign Out</Button></> : <p>Signed Out</p>}</div>
+    <div>
+      { authUser ? 
+        <>
+          <Button varient='outlined' color='error' onClick={handleSignOut}>Sign Out</Button>
+        </> 
+        : 
+          <p>Signed Out</p>  
+      }
+    </div>
   )
 }
