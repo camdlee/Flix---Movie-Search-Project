@@ -8,14 +8,8 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import { doc, deleteDoc } from 'firebase/firestore';
 import { db, auth } from '../firebase';
 
-export default function MovieCard() {
+export default function MovieCard({movieData}) {
 
-    //const {setFavChamp} = useContext(AppContext)
-
-    // const removeFromFirebase = async () => {
-    //     await deleteDoc(doc(db, "users", auth.currentUser.uid, "champions", ))
-    //     this.props.currentTeam()
-    // }
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -23,30 +17,29 @@ export default function MovieCard() {
         <CardMedia
           component="img"
           height="140"
-          image={this.props.movie.poster}
+          image={movieData.poster}
           alt="movie poster"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {this.props.movie.title}
+            {movieData.title}
           </Typography>
           <Typography gutterBottom variant="h5" component="div">
-           <small>{this.props.movie.releaseDate}</small> 
+           <small>Released: {movieData.releaseDate}</small> 
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {this.props.movie.description}
+            {movieData.description}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
         <Button variant="contained" size="small" color="primary">
-          Remove
+          Add to Watch List
         </Button>
         <Button
             variant='contaied'
           color='warning'
         >
-          Add as Favorite
         </Button>
       </CardActions>
     </Card>

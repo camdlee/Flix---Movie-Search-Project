@@ -37,6 +37,7 @@ export default function AuthState() {
     <div>
       { authUser ? 
         <>
+          <p>Hello, {authUser.displayName}</p>
           <Button varient='outlined' color='error' onClick={handleSignOut}>Sign Out</Button>
         </> 
         : 

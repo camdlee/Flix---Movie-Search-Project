@@ -49,6 +49,7 @@ export default function MovieSearch() {
         console.log(movieData)
     }
 
+
     // function to handle submit
     const handleSubmit = (event) => {
       event.preventDefault();
@@ -80,7 +81,7 @@ export default function MovieSearch() {
               required
               fullWidth
               id="movie"
-              label="movie"
+              label="Movie"
               name="movie"
               onChange={(event) => {setMovie(event.target.value)}}
               autoFocus
@@ -94,9 +95,7 @@ export default function MovieSearch() {
               Search
             </Button>
           </Box>
-          return(
-            <MovieCard movie={movie}/>
-          )
+            <MovieCard movieData={movieData}/>
         </Box>
       </Container>
     </ThemeProvider>
