@@ -38,12 +38,17 @@ export default class Nav extends Component {
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link disabled" to="/character">
-                        Character Search
+                        Characters
                     </Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link disabled" to="/movie">
                         Movies
+                    </Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link disabled" to="/watchlist">
+                        Watch List
                     </Link>
                 </li>
                 <li className="nav-item">

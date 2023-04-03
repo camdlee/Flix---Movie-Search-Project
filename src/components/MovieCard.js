@@ -25,7 +25,7 @@ export default function MovieCard({movieData}) {
             {movieData.title}
           </Typography>
           <Typography gutterBottom variant="h5" component="div">
-           <small>Released: {movieData.releaseDate}</small> 
+           <small>Released Date: {movieData.releaseDate}</small> 
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {movieData.description}

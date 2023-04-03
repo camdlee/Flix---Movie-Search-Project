@@ -40,5 +40,18 @@
 
 
 body {
-  background-color: grey;
+  background-color: lightgray;
+}
+
+
+.welcome-card{
+  height: 100vh;    
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  font-family: 'Dosis', sans-serif;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

@@ -23,13 +23,24 @@ export default function MovieSearch() {
 
     const [movie, setMovie] = useState('')
     const [movieData, setMovieData] = useState('')
+    const [results, setResults] = useState([])
 
     //function to get movie data
     const getMovieData = async (movieName) => {
-        //fetching from omdb api
+        //fetching from movie database api
         const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=d6e8c594608b69b399328bb6aaf9ae05&query=${movieName}`)
         const data = await response.json()
         console.log(data)
+
+        const results = []
+
+        //will need to push all the dictionaries with info into our 
+        for (let i of data.results){
+          console.log(i)
+          results.push(i)
+        }
+        console.log(results)
+        setResults(results)
 
         //fetching backdrop image
         const backdropImage = await fetch(`http://image.tmdb.org/t/p/w1280${data.results[0].poster_path}`)
@@ -57,6 +68,12 @@ export default function MovieSearch() {
       //const championTitle = champion[0].toUpperCase() + champion.slice(1,).toLowerCase()
       getMovieData(movie)
     };
+
+
+    // function to view search results
+    const viewResults = async () => {
+        //fetching from movie database api
+    }
 
 
   return (

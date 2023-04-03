@@ -1,17 +1,24 @@
 import React, { Component } from 'react'
 
+
 export default class Home extends Component {
 
   componentDidMount = () => {
-    console.log('Component did mount')
+    //console.log('Component did mount')
   }
 
   render() {
-    console.log('I am being rendered')
+    //console.log('I am being rendered')
     return (
       <div>
-        <div>
-          <h1>This is my Capstone Project Homepage</h1>
+        <div class="welcome-card">
+          <h1>Welcome to Streamify</h1>
+          <ul>
+            <li>You can search any movie or show by genre, rating, etc and add them to your watch list</li>
+            <li>Customize your profile with your favorite characters</li>
+            <li>Keep track of your progress as you finish movies and shows</li>
+            <li>See what's trending</li>
+          </ul>
         </div>
       </div>
     )

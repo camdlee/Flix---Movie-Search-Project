@@ -1,10 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -26,27 +24,27 @@ export default function SignUp() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [name, setName] = useState('')
-    const [user, setUser] = useState('')
+    const [user, setUser] = useState({})
     const navigate = useNavigate()
 
     // function to log input types by user on sign in form
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        console.log({
-        email: data.get('email'),
-        password: data.get('password'),
-        });
+        // console.log({
+        // email: data.get('email'),
+        // password: data.get('password'),
+        // });
         
-        console.log(email)
-        console.log(password)
+        //console.log(email)
+        //console.log(password)
 
         //function to create user from email and password inputs
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-                console.log(user)
+                //console.log(user)
                 updateProfile(user, {
                     displayName: name
                 })
@@ -55,12 +53,12 @@ export default function SignUp() {
                     uid: user.uid,
                     email: user.email
                 }
+                console.log(data)
                 setUser(data)
 
-                // redirect to homme page
+                // redirect to home page
                 navigate('/')
             })
-
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
@@ -68,20 +66,24 @@ export default function SignUp() {
                     errorCode: errorCode,
                     errorMessage: errorMessage
                 })
-                // ..
             });
 
     };
 
-    // function to upload user to firebase
-    // useEffect(() => {
-    //     const addUserToFirebase = async () = {
-    //         await setDoc(doc(db, "users", user.uid),{
-    //             uid: user.uid,
-    //             email: user.email
-    //         })
-    //     }
-    // }, [user])
+    // useEffect hook to mount to page
+    useEffect(() => {
+        // function to upload user to firebase
+        const addUserToFirebase = async () => {
+            //console.log(user)
+            await setDoc(doc(db, "users", user.uid), {
+                uid: user.uid,
+                email: user.email
+            })
+        }
+        if(Object.keys(user).length > 0) {
+            addUserToFirebase()
+        }
+    }, [user])
 
 
     // returning jsx to show page
