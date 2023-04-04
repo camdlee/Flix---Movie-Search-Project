@@ -31,10 +31,10 @@ export default function SignUp() {
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        // console.log({
-        // email: data.get('email'),
-        // password: data.get('password'),
-        // });
+        console.log({
+        email: data.get('email'),
+        password: data.get('password'),
+        });
         
         //console.log(email)
         //console.log(password)
@@ -44,7 +44,7 @@ export default function SignUp() {
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-                //console.log(user)
+                console.log(user)
                 updateProfile(user, {
                     displayName: name
                 })
@@ -57,7 +57,6 @@ export default function SignUp() {
                 setUser(data)
 
                 // redirect to home page
-                navigate('/')
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -67,14 +66,15 @@ export default function SignUp() {
                     errorMessage: errorMessage
                 })
             });
+            
+        };
 
-    };
-
-    // useEffect hook to mount to page
-    useEffect(() => {
+        // useEffect hook to mount to page
+        useEffect(() => {
+        console.log('useEffect')
         // function to upload user to firebase
         const addUserToFirebase = async () => {
-            //console.log(user)
+            console.log(user)
             await setDoc(doc(db, "users", user.uid), {
                 uid: user.uid,
                 email: user.email
@@ -84,8 +84,10 @@ export default function SignUp() {
             addUserToFirebase()
         }
     }, [user])
-
-
+    
+    
+    
+    navigate('/')
     // returning jsx to show page
     return (
         <ThemeProvider theme={theme}>

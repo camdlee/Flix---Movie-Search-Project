@@ -76,6 +76,8 @@ export default function MovieSearch() {
     }
 
 
+
+
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">

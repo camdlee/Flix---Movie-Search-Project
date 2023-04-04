@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AuthState from './AuthState';
-
+// import Nav from './Nav.css';
 
 export default class Nav extends Component {
   render() {
@@ -9,7 +9,7 @@ export default class Nav extends Component {
     <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link className="navbar-brand" to="/">
-                Star Wars
+                Streaming App
             </Link>
             <button 
                 className="navbar-toggler" 
