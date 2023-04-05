@@ -8,8 +8,13 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import { doc, deleteDoc } from 'firebase/firestore';
 import { db, auth } from '../firebase';
 
-export default function MovieCard({movieData}) {
+export default function MovieCard({key, title, releaseDate, language, poster, description, rating}) {
 
+
+  const removeFromFirebase = async () => {
+    await deleteDoc(doc(db, "users", auth.currentUser.uid, 'watch_list'))
+    this.props.currentWatchList()
+  }
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -17,23 +22,23 @@ export default function MovieCard({movieData}) {
         <CardMedia
           component="img"
           height="140"
-          image={movieData.poster}
+          image={`http://image.tmdb.org/t/p/w342${poster}`}
           alt="movie poster"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {movieData.title}
+            {title}
           </Typography>
           <Typography gutterBottom variant="h5" component="div">
-           <small>Released Date: {movieData.releaseDate}</small> 
+           <small>Released Date: {releaseDate}</small> 
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {movieData.description}
+            {description}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button variant="contained" size="small" color="primary">
+        <Button onClick={removeFromFirebase} variant="contained" size="small" color="primary">
           Add to Watch List
         </Button>
         <Button

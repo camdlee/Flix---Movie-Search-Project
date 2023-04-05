@@ -12,69 +12,75 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { doc, setDoc, collection, QuerySnapshot, onSnapshot } from 'firebase/firestore';
 import { auth, db } from '../firebase';
 import MovieCard from '../components/MovieCard';
+import TestBox from '../components/TestBox';
 
 
 //API key: d6e8c594608b69b399328bb6aaf9ae05
 //API request: https://api.themoviedb.org/3/movie/550?api_key=d6e8c594608b69b399328bb6aaf9ae05
+// Example search: https://api.themoviedb.org/3/search/movie?api_key=d6e8c594608b69b399328bb6aaf9ae05&query=avengers
 
 const theme = createTheme();
 
 export default function MovieSearch() {
 
-    const [movie, setMovie] = useState('')
-    const [movieData, setMovieData] = useState('')
-    const [results, setResults] = useState([])
+    const [movies, setMovies] = useState('');
+    //const [movieData, setMovieData] = useState('');
+    const [searchedMovies, setSearchedMovies] = useState([]);
+    const [watchList, setWatchlist] = useState([]);
 
-    //function to get movie data
-    const getMovieData = async (movieName) => {
-        //fetching from movie database api
-        const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=d6e8c594608b69b399328bb6aaf9ae05&query=${movieName}`)
-        const data = await response.json()
-        console.log(data)
 
-        const results = []
+    //======================= Previous function hardcoded to display data for first search result========================
+    // //function to get movie data
+    // const getMovieData = async (movieName) => {
+    //     //fetching from movie database api
+    //     const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=d6e8c594608b69b399328bb6aaf9ae05&query=${movieName}`)
+    //     const data = await response.json()
+    //     //console.log(data.results)
+        
+    //     //fetching backdrop image
+    //     const backdropImage = await fetch(`http://image.tmdb.org/t/p/w1280${data.results[0].poster_path}`)
 
-        //will need to push all the dictionaries with info into our 
-        for (let i of data.results){
-          console.log(i)
-          results.push(i)
-        }
-        console.log(results)
-        setResults(results)
+    //     //fetching Movie poster image
+    //     const posterImage = await fetch(`http://image.tmdb.org/t/p/w342${data.results[0].poster_path}`)
 
-        //fetching backdrop image
-        const backdropImage = await fetch(`http://image.tmdb.org/t/p/w1280${data.results[0].poster_path}`)
+    //     // with search results, we need to set state of searched movies
+    //     setSearchedMovies(data.results)
 
-        //fetching Movie poster image
-        const posterImage = await fetch(`http://image.tmdb.org/t/p/w342${data.results[0].poster_path}`)
+    //     setMovieData({
+    //       title: data.results[0].original_title,
+    //       releaseDate: data.results[0].release_date,
+    //       language: data.results[0].original_language,
+    //       poster: posterImage.url,
+    //       description: data.results[0].overview,
+    //       rating: data.results[0].vote_average,
+    //     })
+    //     console.log(movieData)
+    // }
 
-        setMovieData({
-          title: data.results[0].original_title,
-          releaseDate: data.results[0].release_date,
-          language: data.results[0].original_language,
-          poster: posterImage.url,
-          description: data.results[0].overview,
-          rating: data.results[0].vote_average,
+
+    //======================= UseEffect hook to update as input changes ================
+    useEffect(() => {
+      //console.log('search movie changed')
+      // fetching data from api 
+      fetch(`https://api.themoviedb.org/3/search/movie?api_key=d6e8c594608b69b399328bb6aaf9ae05&query=${movies}`)
+        // waiting for response
+        .then(response => response.json())
+        // set state of searched movies with data pulled by response.json()
+        .then(data=>{
+          console.log(data)
+          setSearchedMovies(data.results)
         })
+        // anytime movies state changes, the steps above 
+    }, [movies])
 
-        console.log(movieData)
-    }
+    //console.log(searchedMovies)
 
-
-    // function to handle submit
+    //====================== Function to handle submit =============================
     const handleSubmit = (event) => {
       event.preventDefault();
-      console.log(movie)
-      //const championTitle = champion[0].toUpperCase() + champion.slice(1,).toLowerCase()
-      getMovieData(movie)
+      //console.log(movies)
+      //getMovieData(movies)
     };
-
-
-    // function to view search results
-    const viewResults = async () => {
-        //fetching from movie database api
-    }
-
 
 
 
@@ -102,19 +108,32 @@ export default function MovieSearch() {
               id="movie"
               label="Movie"
               name="movie"
-              onChange={(event) => {setMovie(event.target.value)}}
+              onChange={(event) => {setMovies(event.target.value)}}
               autoFocus
             />
-            <Button
+            {/* <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
             >
               Search
-            </Button>
+            </Button> */}
           </Box>
-            <MovieCard movieData={movieData}/>
+            {searchedMovies.map(movie => {
+              return(
+              <MovieCard
+                key={movie.id}
+                title={movie.original_title} 
+                releaseDate={movie.release_date}
+                language={movie.original_language} 
+                poster={movie.poster_path} 
+                description={movie.overview} 
+                rating={movie.vote_average} 
+            //currentWatchList={currentWatchList}
+            />
+            )
+            })}
         </Box>
       </Container>
     </ThemeProvider>
