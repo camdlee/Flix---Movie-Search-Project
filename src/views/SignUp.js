@@ -83,11 +83,10 @@ export default function SignUp() {
         if(Object.keys(user).length > 0) {
             addUserToFirebase()
         }
-    }, [user])
+        }, [user])
     
+
     
-    
-    navigate('/')
     // returning jsx to show page
     return (
         <ThemeProvider theme={theme}>
