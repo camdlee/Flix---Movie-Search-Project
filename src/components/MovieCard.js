@@ -11,21 +11,22 @@ import { doc, setDoc, deleteDoc } from 'firebase/firestore';
 import { db, auth } from '../firebase';
 
 
+export default function MovieCard({title, backdrop, genres, releaseDate, language, poster, description, rating}) {
+
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: '60%',
   bgcolor: 'background.paper',
-  border: '2px solid #000',
+  //backgroundImage: `http://image.tmdb.org/t/p/w1280${backdrop}`,
+  border: '1px solid #000',
   borderRadius: '10px',
   boxShadow: 24,
   p: 4,
 };
 
-
-export default function MovieCard({title, backdrop, genres, releaseDate, language, poster, description, rating}) {
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -59,11 +60,11 @@ export default function MovieCard({title, backdrop, genres, releaseDate, languag
 
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, margin: '2%' }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
+          height= 'auto'
           image={`http://image.tmdb.org/t/p/w342${poster}`}
           alt="movie poster"
         />
@@ -71,11 +72,8 @@ export default function MovieCard({title, backdrop, genres, releaseDate, languag
           <Typography gutterBottom variant="h5" component="div">
             {title}
           </Typography>
-          <Typography gutterBottom variant="h5" component="div">
-           <small>Released Date: {releaseDate}</small> 
-          </Typography>
           <Typography variant="body2" color="text.secondary">
-            {description}
+            Released Date: {releaseDate}
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -88,12 +86,21 @@ export default function MovieCard({title, backdrop, genres, releaseDate, languag
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
+              {/* <CardMedia
+                component="img"
+                height="140"
+                image={`http://image.tmdb.org/t/p/w1280${backdrop}`}
+                alt="movie poster"
+              /> */}
               <Typography id="modal-modal-title" variant="h6" component="h2">
                   {title}
               </Typography>
               <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                   {description}
               </Typography>
+              <Button onClick={addMovieToFirebase} variant="contained" size="small" color="primary">
+                Add to Watch List
+              </Button>
             </Box>
           </Modal>
         <Button onClick={addMovieToFirebase} variant="contained" size="small" color="primary">

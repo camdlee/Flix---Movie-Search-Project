@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import CameraIcon from '@mui/icons-material/PhotoCamera';
@@ -15,6 +15,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { collection, onSnapshot, QuerySnapshot } from 'firebase/firestore';
+import { auth, db } from '../firebase';
 
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -22,6 +24,21 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const theme = createTheme();
 
 export default function Album() {
+
+  const [watchList, setWatchList] = useState([])
+
+  const viewWatchList = async () =>{
+    const WatchList = []
+    const subColRef = collection(db, "users", auth.currentUser.uid, "watch_list")
+    onSnapshot(subColRef, (querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        WatchList.push(doc.data())
+      }) 
+      setWatchList(WatchList)
+      console.log(WatchList)
+    })
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />

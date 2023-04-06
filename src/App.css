@@ -55,3 +55,10 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+
+.searched-card-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

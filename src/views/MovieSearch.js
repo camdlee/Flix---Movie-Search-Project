@@ -8,6 +8,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { doc, setDoc, collection, QuerySnapshot, onSnapshot } from 'firebase/firestore';
 import { auth, db } from '../firebase';
+import Grid from '@mui/material/Grid';
 import MovieCard from '../components/MovieCard';
 import TestBox from '../components/TestBox';
 
@@ -108,31 +109,26 @@ export default function MovieSearch() {
               onChange={(event) => {setMovies(event.target.value)}}
               autoFocus
             />
-            {/* <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-            >
-              Search
-            </Button> */}
           </Box>
-            {searchedMovies.map(movie => {
-              return(
-              <MovieCard
-                key={movie.id}
-                title={movie.original_title}
-                backdrop={movie.backdrop_path}
-                genres={movie.genre_ids} 
-                releaseDate={movie.release_date}
-                language={movie.original_language} 
-                poster={movie.poster_path} 
-                description={movie.overview} 
-                rating={movie.vote_average} 
-            //currentWatchList={currentWatchList}
-            />
-            )
-            })}
+            {/* <div className='searched-card-container'>
+              <Grid container spacing={6} justifyContent="center" gap='50px'> */}
+                  {searchedMovies.map(movie => {
+                    return(
+                    <MovieCard
+                      key={movie.id}
+                      title={movie.original_title}
+                      backdrop={movie.backdrop_path}
+                      genres={movie.genre_ids} 
+                      releaseDate={movie.release_date}
+                      language={movie.original_language} 
+                      poster={movie.poster_path} 
+                      description={movie.overview} 
+                      rating={movie.vote_average} 
+                  />
+                  )
+                  })}
+              {/* </Grid>
+            </div> */}
         </Box>
       </Container>
     </ThemeProvider>
