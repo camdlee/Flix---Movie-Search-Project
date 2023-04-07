@@ -11,7 +11,7 @@ export default class Home extends Component {
     //console.log('I am being rendered')
     return (
       <div>
-        <div class="welcome-card">
+        <div className="welcome-card">
           <h1>Welcome</h1>
           <ul>
             <li>You can search any movie or show by genre, rating, etc and add them to your watch list</li>

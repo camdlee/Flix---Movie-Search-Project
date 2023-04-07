@@ -11,6 +11,9 @@ import { auth, db } from '../firebase';
 import Grid from '@mui/material/Grid';
 import MovieCard from '../components/MovieCard';
 import TestBox from '../components/TestBox';
+import { styled } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
+
 
 
 //API key: d6e8c594608b69b399328bb6aaf9ae05
@@ -18,6 +21,15 @@ import TestBox from '../components/TestBox';
 // Example search: https://api.themoviedb.org/3/search/movie?api_key=d6e8c594608b69b399328bb6aaf9ae05&query=avengers
 
 const theme = createTheme();
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
+
 
 export default function MovieSearch() {
 
@@ -110,25 +122,30 @@ export default function MovieSearch() {
               autoFocus
             />
           </Box>
-            {/* <div className='searched-card-container'>
-              <Grid container spacing={6} justifyContent="center" gap='50px'> */}
-                  {searchedMovies.map(movie => {
-                    return(
-                    <MovieCard
-                      key={movie.id}
-                      title={movie.original_title}
-                      backdrop={movie.backdrop_path}
-                      genres={movie.genre_ids} 
-                      releaseDate={movie.release_date}
-                      language={movie.original_language} 
-                      poster={movie.poster_path} 
-                      description={movie.overview} 
-                      rating={movie.vote_average} 
-                  />
-                  )
-                  })}
-              {/* </Grid>
-            </div> */}
+            <Box sx={{ flexGrow: 1 }} className= 'search-card-container'>
+                    <Grid container spacing={2}>
+                        {searchedMovies.map(movie => {
+                          return(
+                            <Grid item key={movie.id} xs={12} sm={6} md={4} lg={3}>
+                              <MovieCard
+                                style={{
+                                  minWidth: '400px'
+                                }}
+                                key={movie.id}
+                                title={movie.original_title}
+                                backdrop={movie.backdrop_path}
+                                genres={movie.genre_ids} 
+                                releaseDate={movie.release_date}
+                                language={movie.original_language} 
+                                poster={movie.poster_path} 
+                                description={movie.overview} 
+                                rating={movie.vote_average} 
+                              />
+                              </Grid>
+                        )
+                        })}
+                    </Grid>
+            </Box>
         </Box>
       </Container>
     </ThemeProvider>
