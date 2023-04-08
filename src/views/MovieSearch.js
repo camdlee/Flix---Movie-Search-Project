@@ -6,8 +6,6 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { doc, setDoc, collection, QuerySnapshot, onSnapshot } from 'firebase/firestore';
-import { auth, db } from '../firebase';
 import Grid from '@mui/material/Grid';
 import MovieCard from '../components/MovieCard';
 import TestBox from '../components/TestBox';
@@ -122,11 +120,12 @@ export default function MovieSearch() {
               autoFocus
             />
           </Box>
-            <Box sx={{ flexGrow: 1, paddingTop: '50px', }} className= 'search-card-container'>
+            <Box sx={{ flexGrow: 1, paddingTop: '50px', }}>
+              <Container maxWidth="lg">
                     <Grid container spacing={3}>
                         {searchedMovies.map(movie => {
                           return(
-                            <Grid item key={movie.id} xs={12} sm={6} md={4} lg={3}>
+                            <Grid item key={movie.id} xs={12} sm={6} md={4} lg={3} sx={{ my: 1 }}>
                               <MovieCard
                                 key={movie.id}
                                 title={movie.original_title}
@@ -142,6 +141,7 @@ export default function MovieSearch() {
                         )
                         })}
                     </Grid>
+              </Container>
             </Box>
         </Box>
       </Container>

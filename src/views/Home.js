@@ -20,6 +20,15 @@ export default class Home extends Component {
             <li>See what's trending in a carousel</li>
           </ul>
         </div>
+        <div className='carousel'>
+        {/* <div class="carousel-item">
+          <img src="..." alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>...</h5>
+            <p>...</p>
+          </div>
+        </div> */}
+        </div>
       </div>
     )
   }

@@ -47,6 +47,11 @@ export default class Nav extends Component {
                     </Link>
                 </li>
                 <li className="nav-item">
+                    <Link className="nav-link disabled" to="/profile">
+                        Profile
+                    </Link>
+                </li>
+                <li className="nav-item">
                     <AuthState/>
                 </li>
             </ul>
