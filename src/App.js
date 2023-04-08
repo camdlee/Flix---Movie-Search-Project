@@ -5,7 +5,6 @@ import Nav from './components/Nav'
 import Home from './views/Home';
 import SignUp from './views/SignUp'
 import SignIn from './views/SignIn'
-import CharacterSearch from './views/CharacterSearch';
 import MovieSearch from './views/MovieSearch';
 import WatchList from './views/WatchList';
 
@@ -24,7 +23,6 @@ export default function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/signup' element={<SignUp/>}/>
           <Route path='/signin' element={<SignIn/>}/>
-          <Route path='/character' element={<CharacterSearch/>}/>
           <Route path='/movie' element={<MovieSearch/>}/>
           <Route path='/watchlist' element={<WatchList/>}/>
         </Routes>

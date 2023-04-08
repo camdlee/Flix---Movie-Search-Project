@@ -60,7 +60,7 @@ const style = {
 
 
   return (
-    <Card sx={{ maxWidth: 345, margin: '2%' }}>
+    <Card sx={{ maxWidth: 345, margin: '2%', flexDirection: '', }}>
       <CardActionArea>
         <CardMedia
           component="img"

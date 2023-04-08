@@ -96,7 +96,7 @@ export default function MovieSearch() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main">
         <CssBaseline />
         <Box
           sx={{
@@ -104,33 +104,30 @@ export default function MovieSearch() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-          }}
+            }}
         >
             <img src=''/>
           <Typography component="h1" variant="h5">
-            Movie Search
+            Search Movies and Shows
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1, width:'50%', }} >
             <TextField
               margin="normal"
               required
               fullWidth
               id="movie"
-              label="Movie"
+              label=""
               name="movie"
               onChange={(event) => {setMovies(event.target.value)}}
               autoFocus
             />
           </Box>
-            <Box sx={{ flexGrow: 1 }} className= 'search-card-container'>
-                    <Grid container spacing={2}>
+            <Box sx={{ flexGrow: 1, paddingTop: '50px', }} className= 'search-card-container'>
+                    <Grid container spacing={3}>
                         {searchedMovies.map(movie => {
                           return(
                             <Grid item key={movie.id} xs={12} sm={6} md={4} lg={3}>
                               <MovieCard
-                                style={{
-                                  minWidth: '400px'
-                                }}
                                 key={movie.id}
                                 title={movie.original_title}
                                 backdrop={movie.backdrop_path}
