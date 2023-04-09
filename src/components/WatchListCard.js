@@ -41,13 +41,23 @@ export default function WatchListCard(watchList) {
 
 
   return (
-    <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-        <CardMedia
+    <Card sx={{ 
+        height: '100%', 
+        display: 'flex', 
+        flexDirection: 'column', 
+        backgroundColor: '#000e1aff',
+        color: '#f7f7f2ff',
+        borderColor: '#000e1aff',
+        border: '1px solid #000',
+        borderRadius: '10px',
+        p: 2, 
+    }}>
+    <CardMedia
         component="img"
         height= 'auto'
         image={`http://image.tmdb.org/t/p/w342${watchList.watchList.poster}`}
         alt="movie poster"
-        />
+    />
     <CardContent sx={{ flexGrow: 1 }}>
         <Typography gutterBottom variant="h5" component="h2">
             Title: {watchList.watchList.title}

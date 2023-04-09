@@ -15,8 +15,6 @@ import { auth, db } from '../firebase';
 import WatchListCard from '../components/WatchListCard';
 
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
 const theme = createTheme();
 
 export default function Album() {
@@ -40,23 +38,10 @@ export default function Album() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <Container>
-            <Typography variant="h5" color="inherit" noWrap align="center">
-              My Watch List
-            </Typography>
-            <Typography variant="h6" align="center" color="text.secondary" paragraph>
-              Saved movies and shows for later
-            </Typography>
-          </Container>
-        </Toolbar>
-      </AppBar>
       <main>
         {/* Hero unit */}
         <Box
           sx={{
-            bgcolor: 'background.paper',
             pt: 8,
             pb: 6,
           }}
@@ -91,7 +76,7 @@ export default function Album() {
         </Container>
       </main>
       {/* Footer */}
-      <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
+      <Box sx={{ p: 6 }} component="footer">
         <Typography variant="h6" align="center" gutterBottom>
           Footer
         </Typography>
