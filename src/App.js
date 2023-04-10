@@ -8,6 +8,7 @@ import SignIn from './views/SignIn'
 import MovieSearch from './views/MovieSearch';
 import WatchList from './views/WatchList';
 import UserProfile from './views/UserProfile';
+import Footer from './components/Footer';
 
 // API key: 8f106539
 // http://www.omdbapi.com/?i=tt3896198&apikey=8f106539
@@ -28,6 +29,7 @@ export default function App() {
           <Route path='/watchlist' element={<WatchList/>}/>
           <Route path='/profile' element={<UserProfile/>}/>
         </Routes>
+        <Footer/>
       </div>
     </BrowserRouter>
     );

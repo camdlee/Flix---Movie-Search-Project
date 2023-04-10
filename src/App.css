@@ -1,7 +1,7 @@
-*{
-  /* background-color: #353d4b; */
-  /* color: #f7f7f2ff; */
-}
+/* *{
+  background-color: #353d4b;
+  color: #f7f7f2ff;
+} */
 
 .App {
   text-align: center;
@@ -60,6 +60,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: url('./static/netflix-800x450.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .welcome-card{
   height: 30%;
@@ -72,10 +75,10 @@ body {
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: rgb(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
+  /* backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); */
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
   border-radius: 20px;
   padding: 2%;
 }

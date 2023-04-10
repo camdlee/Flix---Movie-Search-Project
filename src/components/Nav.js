@@ -44,7 +44,7 @@ const navItemStyle = {
                     </li>
                     <li className="nav-item" sx={{ navItemStyle }}>
                         <Link className="nav-link disabled" to="/movie" sx={{ navItemStyle }}>
-                            Movies & Shows
+                            Search
                         </Link>
                     </li>
                     <li className="nav-item">
