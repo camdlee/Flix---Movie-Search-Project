@@ -14,6 +14,7 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 
 
@@ -100,6 +101,7 @@ export default function MovieSearch() {
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
+      console.log(anchorEl)
     };
     const handleClose = () => {
       setAnchorEl(null);
@@ -135,7 +137,41 @@ export default function MovieSearch() {
               autoFocus
             />
             <div>
-              <Button
+              <Dropdown>
+                <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                  Filter By Genre
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">Adventure</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">Animation</Dropdown.Item>
+                  <Dropdown.Item href="#/">Comedy</Dropdown.Item>
+                  <Dropdown.Item href="#/">Crime</Dropdown.Item>
+                  <Dropdown.Item href="#/">Documentary</Dropdown.Item>
+                  <Dropdown.Item href="#/">Drama</Dropdown.Item>
+                  <Dropdown.Item href="#/">Family</Dropdown.Item>
+                  <Dropdown.Item href="#/">Kids</Dropdown.Item>
+                  <Dropdown.Item href="#/">Fantasy</Dropdown.Item>
+                  <Dropdown.Item href="#/">History</Dropdown.Item>
+                  <Dropdown.Item href="#/">Horror</Dropdown.Item>
+                  <Dropdown.Item href="#/">Music</Dropdown.Item>
+                  <Dropdown.Item href="#/">Mystery</Dropdown.Item>
+                  <Dropdown.Item href="#/">News</Dropdown.Item>
+                  <Dropdown.Item href="#/">Reality</Dropdown.Item>
+                  <Dropdown.Item href="#/">Romance</Dropdown.Item>
+                  <Dropdown.Item href="#/">Sci-Fi & Fantasy</Dropdown.Item>
+                  <Dropdown.Item href="#/">Science Fiction</Dropdown.Item>
+                  <Dropdown.Item href="#/">Soap</Dropdown.Item>
+                  <Dropdown.Item href="#/">Talk</Dropdown.Item>
+                  <Dropdown.Item href="#/">War & Politics</Dropdown.Item>
+                  <Dropdown.Item href="#/">TV Movie</Dropdown.Item>
+                  <Dropdown.Item href="#/">Thriller</Dropdown.Item>
+                  <Dropdown.Item href="#/">War</Dropdown.Item>
+                  <Dropdown.Item href="#/">Western</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+              {/* <Button
                 id="basic-button"
                 aria-controls={open ? 'basic-menu' : undefined}
                 aria-haspopup="true"
@@ -179,7 +215,7 @@ export default function MovieSearch() {
                 <MenuItem onClick={handleClose}>Thriller</MenuItem>
                 <MenuItem onClick={handleClose}>War</MenuItem>
                 <MenuItem onClick={handleClose}>Western</MenuItem>
-              </Menu>
+              </Menu> */}
             </div>
           </Box>
             <Box sx={{ flexGrow: 1, paddingTop: '50px', }}>
