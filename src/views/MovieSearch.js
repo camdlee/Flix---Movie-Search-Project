@@ -11,6 +11,9 @@ import MovieCard from '../components/MovieCard';
 import TestBox from '../components/TestBox';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
 
 
@@ -83,11 +86,23 @@ export default function MovieSearch() {
 
     //console.log(searchedMovies)
 
+
     //====================== Function to handle submit =============================
     const handleSubmit = (event) => {
       event.preventDefault();
       //console.log(movies)
       //getMovieData(movies)
+    };
+
+
+    //============================== For Dropdown Menu ====================================
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+      setAnchorEl(null);
     };
 
 
@@ -119,6 +134,53 @@ export default function MovieSearch() {
               onChange={(event) => {setMovies(event.target.value)}}
               autoFocus
             />
+            <div>
+              <Button
+                id="basic-button"
+                aria-controls={open ? 'basic-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleClick}
+              >
+                Filter by Genre
+              </Button>
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  'aria-labelledby': 'basic-button',
+                }}
+              >
+                <MenuItem onClick={handleClose}>Action</MenuItem>
+                <MenuItem onClick={handleClose}>Adventure</MenuItem>
+                <MenuItem onClick={handleClose}>Animation</MenuItem>
+                <MenuItem onClick={handleClose}>Comedy</MenuItem>
+                <MenuItem onClick={handleClose}>Crime</MenuItem>
+                <MenuItem onClick={handleClose}>Documentary</MenuItem>
+                <MenuItem onClick={handleClose}>Drama</MenuItem>
+                <MenuItem onClick={handleClose}>Family</MenuItem>
+                <MenuItem onClick={handleClose}>Kids</MenuItem>
+                <MenuItem onClick={handleClose}>Fantasy</MenuItem>
+                <MenuItem onClick={handleClose}>History</MenuItem>
+                <MenuItem onClick={handleClose}>Horror</MenuItem>
+                <MenuItem onClick={handleClose}>Music</MenuItem>
+                <MenuItem onClick={handleClose}>Mystery</MenuItem>
+                <MenuItem onClick={handleClose}>News</MenuItem>
+                <MenuItem onClick={handleClose}>Reality</MenuItem>
+                <MenuItem onClick={handleClose}>Romance</MenuItem>
+                <MenuItem onClick={handleClose}>Sci-Fi & Fantasy</MenuItem>
+                <MenuItem onClick={handleClose}>Science Fiction</MenuItem>
+                <MenuItem onClick={handleClose}>Soap</MenuItem>
+                <MenuItem onClick={handleClose}>Talk</MenuItem>
+                <MenuItem onClick={handleClose}>War & Politics</MenuItem>
+                <MenuItem onClick={handleClose}>TV Movie</MenuItem>
+                <MenuItem onClick={handleClose}>Thriller</MenuItem>
+                <MenuItem onClick={handleClose}>War</MenuItem>
+                <MenuItem onClick={handleClose}>Western</MenuItem>
+              </Menu>
+            </div>
           </Box>
             <Box sx={{ flexGrow: 1, paddingTop: '50px', }}>
               <Container maxWidth="lg">

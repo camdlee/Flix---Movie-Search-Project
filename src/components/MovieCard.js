@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './MovieCard.css';
-import { useContext, useEffect } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -30,7 +30,37 @@ export default function MovieCard({title, backdrop, genres, releaseDate, languag
     p: 4,
   };
 
+  const genres_dict = {
+    28: 'Action',
+    12: 'Adventure',
+    16: 'Animation',
+    35: 'Comedy',
+    80: 'Crime',
+    99: 'Documentary',
+    18: 'Drama',
+    10751: 'Family',
+    10762: 'Kids',
+    14: 'Fantasy',
+    36: 'History',
+    27: 'Horror',
+    10402: 'Music',
+    9648: 'Mystery',
+    10763: 'News',
+    10764: 'Reality',
+    10749: 'Romance',
+    10765: 'Sci-Fi & Fantasy',
+    10766: 'Soap',
+    10767: 'Talk',
+    10768: 'War & Politics',
+    878: 'Science Fiction',
+    10770: 'TV Movie',
+    53: 'Thriller',
+    10752: 'War',
+    37: 'Western'
+  }
+
   const [open, setOpen] = React.useState(false);
+  //const [movieGenres, setMovieGenres] = useState('');
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -39,6 +69,7 @@ export default function MovieCard({title, backdrop, genres, releaseDate, languag
     await deleteDoc(doc(db, "users", auth.currentUser.uid, 'watch_list'))
     //this.props.currentWatchList()
   }
+
 
   //------------------- Function to add to Firestore ---------------------
   const addMovieToFirebase = async () => {
@@ -62,6 +93,7 @@ export default function MovieCard({title, backdrop, genres, releaseDate, languag
   }
 
 
+  
   return (
     <Card sx={{ 
       height: '100%', 
@@ -93,6 +125,9 @@ export default function MovieCard({title, backdrop, genres, releaseDate, languag
             <Typography variant="body2" color="text.secondary" sx={{color: '#f7f7f2ff'}}>
               Released Date: {releaseDate}
             </Typography>
+            {/* <Typography variant="body2" color="text.secondary" sx={{color: '#f7f7f2ff'}}>
+              Genres: {genres}
+            </Typography> */}
         </CardContent>
       <CardActions>
           <Button onClick={handleOpen} variant="contained" size="small" color="primary" sx={{backgroundColor: '#003a66ff', color: '#f7f7f2ff'}}>See More</Button>
