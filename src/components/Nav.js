@@ -12,7 +12,7 @@ const navItemStyle = {
 }
 
     return (
-        <div>
+        <div className="nav-div">
             <nav className="navbar navbar-expand-lg navbar-light">
                 <Link className="navbar-brand" to="/">
                     Streaming App

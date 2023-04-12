@@ -39,7 +39,34 @@ export default function MovieSearch() {
     //const [movieData, setMovieData] = useState('');
     const [searchedMovies, setSearchedMovies] = useState([]);
     const [watchList, setWatchlist] = useState([]);
-
+    const genres_dict = {
+      Action: 28,
+      Adventure: 12,
+      Animation: 16,
+      Comedy: 35,
+      Crime:80,
+      Documentary:99,
+      Drama:18,
+      Family:10751,
+      Kids:10762,
+      Fantasy:14,
+      Histor:36,
+      Horror:27,
+      Music:10402,
+      Mystery:9648,
+      News:10763,
+      Reality:10764,
+      Romance:10749,
+      'Sci-Fi & Fantasy':10765,
+      Soap:10766,
+      Talk:10767,
+      'War & Politics':10768,
+      'Science Fiction':878,
+      'TV Movie':10770,
+      Thriller:53,
+      War:10752,
+      Western:37
+    }
 
     //======================= Previous function hardcoded to display data for first search result========================
     // //function to get movie data
@@ -96,17 +123,24 @@ export default function MovieSearch() {
     };
 
 
-    //============================== For Dropdown Menu ====================================
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
-      console.log(anchorEl)
-    };
-    const handleClose = () => {
-      setAnchorEl(null);
-    };
+    //============================== For Filter Dropdown Menu ====================================
+    //------ UseState to change the filter setting anytime user clicks a category-------
+    const [filterCat, setFilterCat] = useState('');
+    const filteredResults = searchedMovies.filter(movie => {
+      //console.log(movie)
+      //console.log(filterCat)
+      return movie.genre_ids.toString().includes(filterCat)
+    })
+    //----------- handleFilter function to get the genre from the dropdown menu --------
+    const handleFilter = (event) => {
+      setFilterCat(genres_dict[event.target.innerText])
+      //console.log(filterCat)
+      }
 
+    //============================== Reset Filter ====================================
+    const resetFilter = (event) => {
+      return searchedMovies
+    }
 
 
   return (
@@ -125,6 +159,8 @@ export default function MovieSearch() {
           <Typography component="h1" variant="h5">
             Search Movies and Shows
           </Typography>
+
+          {/* -------------------- INPUT SEARCH BAR ------------------------- */}
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1, width:'50%', }} >
             <TextField
               margin="normal"
@@ -137,91 +173,54 @@ export default function MovieSearch() {
               autoFocus
             />
             <div>
+
+              {/* -------------------- DROPDOWN FILTER ------------------------- */}
               <Dropdown>
                 <Dropdown.Toggle variant="primary" id="dropdown-basic">
                   Filter By Genre
                 </Dropdown.Toggle>
-
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">Adventure</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">Animation</Dropdown.Item>
-                  <Dropdown.Item href="#/">Comedy</Dropdown.Item>
-                  <Dropdown.Item href="#/">Crime</Dropdown.Item>
-                  <Dropdown.Item href="#/">Documentary</Dropdown.Item>
-                  <Dropdown.Item href="#/">Drama</Dropdown.Item>
-                  <Dropdown.Item href="#/">Family</Dropdown.Item>
-                  <Dropdown.Item href="#/">Kids</Dropdown.Item>
-                  <Dropdown.Item href="#/">Fantasy</Dropdown.Item>
-                  <Dropdown.Item href="#/">History</Dropdown.Item>
-                  <Dropdown.Item href="#/">Horror</Dropdown.Item>
-                  <Dropdown.Item href="#/">Music</Dropdown.Item>
-                  <Dropdown.Item href="#/">Mystery</Dropdown.Item>
-                  <Dropdown.Item href="#/">News</Dropdown.Item>
-                  <Dropdown.Item href="#/">Reality</Dropdown.Item>
-                  <Dropdown.Item href="#/">Romance</Dropdown.Item>
-                  <Dropdown.Item href="#/">Sci-Fi & Fantasy</Dropdown.Item>
-                  <Dropdown.Item href="#/">Science Fiction</Dropdown.Item>
-                  <Dropdown.Item href="#/">Soap</Dropdown.Item>
-                  <Dropdown.Item href="#/">Talk</Dropdown.Item>
-                  <Dropdown.Item href="#/">War & Politics</Dropdown.Item>
-                  <Dropdown.Item href="#/">TV Movie</Dropdown.Item>
-                  <Dropdown.Item href="#/">Thriller</Dropdown.Item>
-                  <Dropdown.Item href="#/">War</Dropdown.Item>
-                  <Dropdown.Item href="#/">Western</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>Action</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>Adventure</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>Animation</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>Comedy</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>Crime</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>Documentary</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>Drama</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>Family</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>Kids</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>Fantasy</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>History</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>Horror</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>Music</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>Mystery</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>News</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>Reality</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>Romance</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>Sci-Fi & Fantasy</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>Science Fiction</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>Soap</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>Talk</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>War & Politics</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>TV Movie</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>Thriller</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>War</Dropdown.Item>
+                  <Dropdown.Item onClick={handleFilter}>Western</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-              {/* <Button
-                id="basic-button"
-                aria-controls={open ? 'basic-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-                onClick={handleClick}
-              >
-                Filter by Genre
+
+              {/* -------------------- RESET FILTER ------------------------- */}
+              <Button onClick={resetFilter} variant="contained" size="small" color="primary">
+                Reset Filter
               </Button>
-              <Menu
-                id="basic-menu"
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                MenuListProps={{
-                  'aria-labelledby': 'basic-button',
-                }}
-              >
-                <MenuItem onClick={handleClose}>Action</MenuItem>
-                <MenuItem onClick={handleClose}>Adventure</MenuItem>
-                <MenuItem onClick={handleClose}>Animation</MenuItem>
-                <MenuItem onClick={handleClose}>Comedy</MenuItem>
-                <MenuItem onClick={handleClose}>Crime</MenuItem>
-                <MenuItem onClick={handleClose}>Documentary</MenuItem>
-                <MenuItem onClick={handleClose}>Drama</MenuItem>
-                <MenuItem onClick={handleClose}>Family</MenuItem>
-                <MenuItem onClick={handleClose}>Kids</MenuItem>
-                <MenuItem onClick={handleClose}>Fantasy</MenuItem>
-                <MenuItem onClick={handleClose}>History</MenuItem>
-                <MenuItem onClick={handleClose}>Horror</MenuItem>
-                <MenuItem onClick={handleClose}>Music</MenuItem>
-                <MenuItem onClick={handleClose}>Mystery</MenuItem>
-                <MenuItem onClick={handleClose}>News</MenuItem>
-                <MenuItem onClick={handleClose}>Reality</MenuItem>
-                <MenuItem onClick={handleClose}>Romance</MenuItem>
-                <MenuItem onClick={handleClose}>Sci-Fi & Fantasy</MenuItem>
-                <MenuItem onClick={handleClose}>Science Fiction</MenuItem>
-                <MenuItem onClick={handleClose}>Soap</MenuItem>
-                <MenuItem onClick={handleClose}>Talk</MenuItem>
-                <MenuItem onClick={handleClose}>War & Politics</MenuItem>
-                <MenuItem onClick={handleClose}>TV Movie</MenuItem>
-                <MenuItem onClick={handleClose}>Thriller</MenuItem>
-                <MenuItem onClick={handleClose}>War</MenuItem>
-                <MenuItem onClick={handleClose}>Western</MenuItem>
-              </Menu> */}
             </div>
           </Box>
+
+          {/* -------------------- MOVIE RESULTS CARD DISPLAY ------------------------- */}
             <Box sx={{ flexGrow: 1, paddingTop: '50px', }}>
               <Container maxWidth="lg">
                     <Grid container spacing={3}>
-                        {searchedMovies.map(movie => {
+                        {filteredResults.map(movie => {
                           return(
                             <Grid item key={movie.id} xs={12} sm={6} md={4} lg={3} sx={{ my: 1 }}>
                               <MovieCard
