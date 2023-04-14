@@ -50,7 +50,7 @@ export default function MovieSearch() {
       Family:10751,
       Kids:10762,
       Fantasy:14,
-      Histor:36,
+      History:36,
       Horror:27,
       Music:10402,
       Mystery:9648,
@@ -139,6 +139,7 @@ export default function MovieSearch() {
 
     //============================== Reset Filter ====================================
     const resetFilter = (event) => {
+      setFilterCat('')
       return searchedMovies
     }
 

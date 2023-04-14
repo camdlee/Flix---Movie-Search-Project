@@ -59,16 +59,22 @@ export default function MovieCard({title, backdrop, genres, releaseDate, languag
     37: 'Western'
   }
 
+  // --------------------------- Parsing through genre prop to get movie genres ---------------
+  const displayGenres = (event) => {
+    console.log(movieGenres)
+    //console.log(movieGenres)
+  }
+  //{genres} prop is an array of genre ids, so we have to parse through the array and match it to the dictionary we have of genre ids
+  const movieGenres = []
+  for (let genre of {genres}.genres) {
+    movieGenres.push(genres_dict[genre])
+  }
+
+
   const [open, setOpen] = React.useState(false);
   //const [movieGenres, setMovieGenres] = useState('');
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-  //------------------- Function to remove from Firestore ---------------------
-  const removeFromFirebase = async () => {
-    await deleteDoc(doc(db, "users", auth.currentUser.uid, 'watch_list'))
-    //this.props.currentWatchList()
-  }
 
 
   //------------------- Function to add to Firestore ---------------------
@@ -125,9 +131,12 @@ export default function MovieCard({title, backdrop, genres, releaseDate, languag
             <Typography variant="body2" color="text.secondary" sx={{color: '#f7f7f2ff'}}>
               Released Date: {releaseDate}
             </Typography>
-            {/* <Typography variant="body2" color="text.secondary" sx={{color: '#f7f7f2ff'}}>
-              Genres: {genres}
-            </Typography> */}
+            <Typography variant="body2" color="text.secondary" sx={{color: '#f7f7f2ff'}}>
+              Genres: {movieGenres.map(genre => {
+                        return(genre+" | ")
+                      }
+                      )}
+            </Typography>
         </CardContent>
       <CardActions>
           <Button onClick={handleOpen} variant="contained" size="small" color="primary" sx={{backgroundColor: '#003a66ff', color: '#f7f7f2ff'}}>See More</Button>
@@ -140,6 +149,12 @@ export default function MovieCard({title, backdrop, genres, releaseDate, languag
                 <Box sx={modalStyle}>
                   <Typography id="modal-modal-title" variant="h6" component="h2">
                       {title}
+                  </Typography>
+                  <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                      Genres: {movieGenres.map(genre => {
+                        return(genre+" | ")
+                      }
+                      )}
                   </Typography>
                   <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                       {description}
