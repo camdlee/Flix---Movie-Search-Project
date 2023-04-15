@@ -46,7 +46,6 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  
 }
 
 body {
@@ -56,12 +55,8 @@ body {
 }
 
 /* --------------------------------NAVBAR---------------------------- */
-nav{
-  border-radius: 100px;
-  margin: .5%;
-}
 .navbar{
-  background-color: rgb(255,255,255, .1);
+  background-color: hwb(208 0% 90%);
   color: white;
 }
 .nav-link{
@@ -69,6 +64,12 @@ nav{
 }
 .navbar-brand{
   font-weight: bold;
+}
+.collapse{
+  justify-content: flex-end;
+}
+.navbar-collapse{
+  justify-content: flex-end;
 }
 
 .welcome-container{
@@ -100,6 +101,35 @@ nav{
   padding: 2%;
 }
 
+
+
+
+
+/* -----------------------Sign In-------------------- */
+.main-signin{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('./static/netflix-800x450.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.signin-card{
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 30);
+  border-radius: 20px;
+  padding: 10%;
+  color: #f7f7f2ff;
+}
+
+
+
+/*----------------------------Avatar---------------------*/
+.avatar-icon{
+  border: solid white;
+}
 
 .profile-card{
   width: 300px;
@@ -149,7 +179,8 @@ nav{
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
-
-Footer{
-  position: relative;
+/*-------------------------Footer-----------------------------*/
+footer{
+  background-color: #000e1aff;
+  color: #f7f7f2ff;
 }

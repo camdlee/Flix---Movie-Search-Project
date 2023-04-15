@@ -23,7 +23,7 @@ export default function App() {
     <BrowserRouter>
       <div className="">
         <Nav/>
-        <div className='main-app'>
+        <div className=''>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/signup' element={<SignUp/>}/>

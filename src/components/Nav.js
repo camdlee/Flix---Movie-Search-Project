@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Avatar from '@mui/material/Avatar';
 import AuthState from './AuthState';
+import Dropdown from 'react-bootstrap/Dropdown';
 // import Nav from './Nav.css';
 
 
 
 export default function Navbar(){
-
-const navItemStyle = {
-    color: '#f7f7f2ff',
-}
 
     return (
         <div className="nav-div">
@@ -42,8 +40,8 @@ const navItemStyle = {
                             Sign In
                         </Link>
                     </li>
-                    <li className="nav-item" sx={{ navItemStyle }}>
-                        <Link className="nav-link" to="/movie" sx={{ navItemStyle }}>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/movie">
                             Search
                         </Link>
                     </li>
@@ -52,14 +50,28 @@ const navItemStyle = {
                             Watch List
                         </Link>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <Link className="nav-link" to="/profile">
                             Profile
                         </Link>
-                    </li>
+                    </li> */}
                     {/* <li className="nav-item">
                         <AuthState/>
                     </li> */}
+                    <li className="nav-item nav-link">
+                        <Link className="nav-link" to="profile">
+                            {/* <Dropdown>
+                                <Dropdown.Toggle id="dropdown-basic"> */}
+                                    <Avatar className="avatar-icon" href="/profile" alt="User" src="https://pbs.twimg.com/media/EwnMiM2WgAQAH6y.jpg" / >
+                                {/* </Dropdown.Toggle>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item>Action</Dropdown.Item>
+                                    <Dropdown.Item>Adventure</Dropdown.Item>
+                                    <Dropdown.Item>Animation</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown> */}
+                        </Link>
+                    </li>
                 </ul>
                 </div>
             </nav>

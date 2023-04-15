@@ -59,17 +59,17 @@ export default function SignUp() {
     // returning jsx to show page
     return (
         <ThemeProvider theme={theme}>
+        <div className="main-signin">
         <Container component="main" maxWidth="xs">
           <CssBaseline />
-          <Box
+          <Box className="signin-card"
             sx={{
-              marginTop: 8,
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}>
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
@@ -86,6 +86,7 @@ export default function SignUp() {
                 autoComplete="email"
                 onChange={(event) => {setEmail(event.target.value)}}
                 autoFocus
+                sx={{ borderRadius: '5px', backgroundColor: 'white'}}
               />
               <TextField
                 margin="normal"
@@ -97,6 +98,7 @@ export default function SignUp() {
                 id="password"
                 autoComplete="current-password"
                 onChange={(event) => {setPassword(event.target.value)}}
+                sx={{ borderRadius: '5px', backgroundColor: 'white'}}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -112,19 +114,20 @@ export default function SignUp() {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
+                  <Link to="" variant="body2">
                     Forgot password?
                   </Link>
                 </Grid>
                 <Grid item>
                   <Link to="/signup" variant="body2">
-                    {"Don't have an account? Sign Up"}
+                    Don't have an account? Sign Up
                   </Link>
                 </Grid>
               </Grid>
             </Box>
           </Box>
         </Container>
+        </div>
       </ThemeProvider>
     );
   }

@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <div>
+    <div className='footer'>
     {/* Footer */}
-    <footer className="bg-dark text-center text-white">
+    <footer className="text-center">
         {/* Grid container */}
         <div className="container p-4">
         {/* Section: Form */}
