@@ -46,7 +46,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-
+  
 }
 
 body {
@@ -55,10 +55,21 @@ body {
   height: 100%;
 }
 
-.navbar{
-  background-color: rgb(44, 56, 66);
+/* --------------------------------NAVBAR---------------------------- */
+nav{
+  border-radius: 100px;
+  margin: .5%;
 }
-
+.navbar{
+  background-color: rgb(255,255,255, .1);
+  color: white;
+}
+.nav-link{
+  color: #f7f7f2ff;
+}
+.navbar-brand{
+  font-weight: bold;
+}
 
 .welcome-container{
   height: 100vh;
@@ -89,6 +100,31 @@ body {
   padding: 2%;
 }
 
+
+.profile-card{
+  width: 300px;
+  height: 480px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 1px 10px 1px black
+}
+.profile-upper-container{
+  height: 100px;
+  background: linear-gradient(to left, blue, green);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.profile-img-container{
+  background: white;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  padding: 5px;
+  transform: translate(95px, 45px);
+}
+.profile-lower-container{
+  color: black;
+}
 
 .searched-card-container{
   margin-top: 100px;

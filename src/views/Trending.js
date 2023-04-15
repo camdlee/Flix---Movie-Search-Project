@@ -10,7 +10,7 @@ import Grid from '@mui/material/Grid';
 import MovieCard from '../components/MovieCard';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-
+import Carousel from 'react-bootstrap/Carousel';
 
 //https://api.themoviedb.org/3/trending/all/day?api_key=d6e8c594608b69b399328bb6aaf9ae05
 // Trending movie request: https://api.themoviedb.org/3/trending/movie/day?api_key=d6e8c594608b69b399328bb6aaf9ae05
@@ -24,7 +24,10 @@ export default function Trending() {
     //const [movieData, setMovieData] = useState('');
     const [searchedMovies, setSearchedMovies] = useState([]);
     const [watchList, setWatchlist] = useState([]);
-
+    const [index, setIndex] = useState(0);
+    const handleSelect = (selectedIndex, e) => {
+      setIndex(selectedIndex);
+    };
 
     //======================= UseEffect hook to update as input changes ================
     useEffect(() => {
@@ -53,58 +56,44 @@ export default function Trending() {
 
 
   return (
-    <ThemeProvider theme={theme}>
-      <Container component="main">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            }}
-        >
-            <img src=''/>
-          <Typography component="h1" variant="h5">
-            Search Movies and Shows
-          </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1, width:'50%', }} >
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="movie"
-              label=""
-              name="movie"
-              onChange={(event) => {setMovies(event.target.value)}}
-              autoFocus
-            />
-          </Box>
-            <Box sx={{ flexGrow: 1, paddingTop: '50px', }}>
-              <Container maxWidth="lg">
-                    <Grid container spacing={3}>
-                        {searchedMovies.map(movie => {
-                          return(
-                            <Grid item key={movie.id} xs={12} sm={6} md={4} lg={3} sx={{ my: 1 }}>
-                              <MovieCard
-                                key={movie.id}
-                                title={movie.original_title}
-                                backdrop={movie.backdrop_path}
-                                genres={movie.genre_ids} 
-                                releaseDate={movie.release_date}
-                                language={movie.original_language} 
-                                poster={movie.poster_path} 
-                                description={movie.overview} 
-                                rating={movie.vote_average} 
-                              />
-                              </Grid>
-                        )
-                        })}
-                    </Grid>
-              </Container>
-            </Box>
-        </Box>
-      </Container>
-    </ThemeProvider>
-  )
+      <Carousel activeIndex={index} onSelect={handleSelect}>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/863E75A035911DBA10F8D7EE1E433A12A1BF4915670B66597AC31C585A291942/scale?width=1200&aspectRatio=1.78&format=jpeg"
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <h3>Avengers: Endgame</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://images6.alphacoders.com/103/1038319.jpg"
+          alt="Second slide"
+        />
+
+        <Carousel.Caption>
+          <h3>Mandalorian</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://static.hbo.com/2022-06/house-of-the-dragon-ka-1920.jpg"
+          alt="Third slide"
+        />
+
+        <Carousel.Caption>
+          <h3>House of the Dragon</h3>
+          <p>
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          </p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
+  );
 }

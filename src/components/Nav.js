@@ -13,9 +13,9 @@ const navItemStyle = {
 
     return (
         <div className="nav-div">
-            <nav className="navbar navbar-expand-lg navbar-light">
-                <Link className="navbar-brand" to="/">
-                    Streaming App
+            <nav className="navbar navbar-expand-lg">
+                <Link className="navbar-brand" to="/" sx={{color: 'white'}}>
+                    Flix
                 </Link>
                 <button 
                     className="navbar-toggler" 
@@ -29,37 +29,37 @@ const navItemStyle = {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
-                    <li className="nav-item active">
+                    <li className="nav-item">
                         <Link className="nav-link" to="/">Home<span className="sr-only">(current)</span></Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link disabled" to="/signup">
+                        <Link className="nav-link" to="/signup">
                             Sign Up
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link disabled" to="/signin">
+                        <Link className="nav-link" to="/signin">
                             Sign In
                         </Link>
                     </li>
                     <li className="nav-item" sx={{ navItemStyle }}>
-                        <Link className="nav-link disabled" to="/movie" sx={{ navItemStyle }}>
+                        <Link className="nav-link" to="/movie" sx={{ navItemStyle }}>
                             Search
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link disabled" to="/watchlist">
+                        <Link className="nav-link" to="/watchlist">
                             Watch List
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link disabled" to="/profile">
+                        <Link className="nav-link" to="/profile">
                             Profile
                         </Link>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <AuthState/>
-                    </li>
+                    </li> */}
                 </ul>
                 </div>
             </nav>

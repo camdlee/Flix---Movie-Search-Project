@@ -9,6 +9,8 @@ import MovieSearch from './views/MovieSearch';
 import WatchList from './views/WatchList';
 import UserProfile from './views/UserProfile';
 import Footer from './components/Footer';
+import Trending from './views/Trending';
+import Navbar from './components/Nav';
 
 // API key: 8f106539
 // http://www.omdbapi.com/?i=tt3896198&apikey=8f106539
@@ -19,16 +21,19 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <div className="main-app">
+      <div className="">
         <Nav/>
+        <div className='main-app'>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/signup' element={<SignUp/>}/>
           <Route path='/signin' element={<SignIn/>}/>
+          <Route path='/trending' element={<Trending/>}/>
           <Route path='/movie' element={<MovieSearch/>}/>
           <Route path='/watchlist' element={<WatchList/>}/>
-          <Route path='/profile' element={<UserProfile/>}/>
+          <Route path='/profile' element={<UserProfile/>}/>f
         </Routes>
+        </div>
         <Footer/>
       </div>
     </BrowserRouter>
