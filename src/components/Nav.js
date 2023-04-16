@@ -55,9 +55,9 @@ export default function Navbar(){
                             Profile
                         </Link>
                     </li> */}
-                    {/* <li className="nav-item">
+                    <li className="nav-item">
                         <AuthState/>
-                    </li> */}
+                    </li>
                     <li className="nav-item nav-link">
                         <Link className="nav-link" to="profile">
                             {/* <Dropdown>

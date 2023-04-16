@@ -12,7 +12,7 @@ import { db, auth } from '../firebase';
 
 
 
-export default function WatchListCard(watchList) {
+export default function WatchListCard(props) {
 
 
   const style = {
@@ -60,7 +60,7 @@ export default function WatchListCard(watchList) {
     37: 'Western'
   }
   const movieGenres = []
-  for (let genre of watchList.watchList.genres) {
+  for (let genre of props.watchList.genres) {
     movieGenres.push(genres_dict[genre])
   }
 
@@ -69,9 +69,10 @@ export default function WatchListCard(watchList) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  
   //------------------- Function to remove from Firestore ---------------------
   const removeFromFirebase = async () => {
-    await deleteDoc(doc(db, "users", auth.currentUser.uid, 'watch_list'))
+    await deleteDoc(doc(db, "users", auth.currentUser.uid, 'watch_list', props.watchList.title))
     //this.props.currentWatchList()
   }
 
@@ -91,12 +92,12 @@ export default function WatchListCard(watchList) {
     <CardMedia
         component="img"
         height= 'auto'
-        image={`http://image.tmdb.org/t/p/w342${watchList.watchList.poster}`}
+        image={`http://image.tmdb.org/t/p/w342${props.watchList.poster}`}
         alt="movie poster"
     />
     <CardContent sx={{ flexGrow: 1 }}>
         <Typography gutterBottom variant="h5" component="h2">
-            Title: {watchList.watchList.title}
+            Title: {props.watchList.title}
         </Typography>
     </CardContent>
         <CardActions>
@@ -109,10 +110,10 @@ export default function WatchListCard(watchList) {
                     >
                         <Box sx={style}>
                             <Typography id="modal-modal-title" variant="h6" component="h2">
-                                Title: {watchList.watchList.title}
+                                Title: {props.watchList.title}
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
-                                Released Date: {watchList.watchList.releaseDate}
+                                Released Date: {props.watchList.releaseDate}
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
                                 Genres: {movieGenres.map(genre => {
@@ -121,7 +122,7 @@ export default function WatchListCard(watchList) {
                                         )}
                             </Typography>
                             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                                Desciption: {watchList.watchList.description}
+                                Desciption: {props.watchList.description}
                             </Typography>
                         </Box>
                     </Modal>

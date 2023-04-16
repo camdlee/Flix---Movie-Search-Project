@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -22,7 +22,7 @@ export default function Album() {
   const [watchList, setWatchList] = useState([])
   
 
-  const viewWatchList = async () =>{
+  const viewWatchList = () =>{
     const WatchList = []
     const subColRef = collection(db, "users", auth.currentUser.uid, "watch_list")
     onSnapshot(subColRef, (querySnapshot) => {
@@ -34,6 +34,19 @@ export default function Album() {
     })
   }
 
+// useEffect(()=> {
+//   const WatchList = []
+//   const subColRef = collection(db, "users", auth.currentUser.uid, "watch_list")
+//   onSnapshot(subColRef, (querySnapshot) => {
+//     querySnapshot.forEach((doc) => {
+//       WatchList.push(doc.data())
+//     }) 
+//     setWatchList(WatchList)
+//     viewWatchList()
+//     })
+// }
+// )
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -42,8 +55,8 @@ export default function Album() {
         {/* Hero unit */}
         <Box
           sx={{
-            pt: 8,
-            pb: 6,
+            pt: 4,
+            pb: 4,
           }}
         >
           <Container maxWidth="sm">
@@ -52,6 +65,7 @@ export default function Album() {
               variant="h2"
               align="center"
               color="text.primary"
+              fontWeight="medium"
               gutterBottom
             >
               My Watch List
@@ -62,16 +76,17 @@ export default function Album() {
             <Button onClick={viewWatchList} variant="contained">View Watch List</Button>
           </Container>
         </Box>
+        
         <Container maxWidth="lg">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {watchList.map((watchList) => (
+            {watchList.map((watchList) => {return (
               <Grid item key={watchList.key} xs={12} sm={6} md={4} lg={3} sx={{ my: 1 }}>
                 <WatchListCard
                   watchList={watchList}
                 />
               </Grid>
-            ))}
+            )})}
           </Grid>
         </Container>
       </main>

@@ -14,7 +14,7 @@ import { db, auth } from '../firebase';
 // import Stack from '@mui/material/Stack';
 
 
-export default function MovieCard({title, backdrop, genres, releaseDate, language, poster, description, rating}) {
+export default function MovieCard({key, title, backdrop, genres, releaseDate, language, poster, description, rating}) {
 
   const modalStyle = {
     position: 'absolute',

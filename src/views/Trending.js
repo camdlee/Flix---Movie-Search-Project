@@ -29,11 +29,11 @@ export default function Trending() {
       setIndex(selectedIndex);
     };
 
-    //======================= UseEffect hook to update as input changes ================
+    //======================= UseEffect hook to search trending info ================
     useEffect(() => {
       //console.log('search movie changed')
       // fetching data from api 
-      fetch(`https://api.themoviedb.org/3/search/movie?api_key=d6e8c594608b69b399328bb6aaf9ae05&query=${movies}`)
+      fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=d6e8c594608b69b399328bb6aaf9ae05`)
         // waiting for response
         .then(response => response.json())
         // set state of searched movies with data pulled by response.json()
