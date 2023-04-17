@@ -174,8 +174,8 @@ export default function MovieSearch() {
               autoFocus
               sx={{ borderRadius: '5px', backgroundColor: 'white' }}
             />
-            <div>
-
+          </Box>
+            <div className="explore-actions">
               {/* -------------------- DROPDOWN FILTER ------------------------- */}
               <Dropdown>
                 <Dropdown.Toggle variant="primary" id="dropdown-basic">
@@ -212,11 +212,10 @@ export default function MovieSearch() {
               </Dropdown>
 
               {/* -------------------- RESET FILTER ------------------------- */}
-              <Button onClick={resetFilter} variant="outlined" size="small" color="primary">
+              <Button onClick={resetFilter} variant="outlined" color="primary">
                 Reset Filter
               </Button>
             </div>
-          </Box>
         </Box>
 
           {/* -------------------- MOVIE RESULTS CARD DISPLAY ------------------------- */}

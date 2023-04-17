@@ -20,80 +20,124 @@ const theme = createTheme();
 
 export default function Trending() {
     
-    const [movies, setMovies] = useState('');
+    const [trending, setTrending] = useState('');
     //const [movieData, setMovieData] = useState('');
-    const [searchedMovies, setSearchedMovies] = useState([]);
-    const [watchList, setWatchlist] = useState([]);
+    const [trendingData, setTrendingData] = useState([]);
     const [index, setIndex] = useState(0);
     const handleSelect = (selectedIndex, e) => {
       setIndex(selectedIndex);
     };
 
+    // const trendingData = async() =>{
+    //   fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=d6e8c594608b69b399328bb6aaf9ae05`)
+    //           // waiting for response
+    //     .then(response => response.json())
+    //     // set state of searched trending with data pulled by response.json()
+    //     .then(data=>{
+    //       console.log(data)
+    //     })
+    // } 
+
+
     //======================= UseEffect hook to search trending info ================
     useEffect(() => {
-      //console.log('search movie changed')
-      // fetching data from api 
+      const callTrending=()=>{
+              // fetching data from api 
       fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=d6e8c594608b69b399328bb6aaf9ae05`)
         // waiting for response
         .then(response => response.json())
-        // set state of searched movies with data pulled by response.json()
+        // set state of searched trending with data pulled by response.json()
         .then(data=>{
           console.log(data)
-          setSearchedMovies(data.results)
+          let dataResults = data.results
+          setTrendingData(dataResults)
+          console.log(trendingData)
         })
-        // anytime movies state changes, the steps above 
-    }, [movies])
+      }
+      callTrending()
+      console.log(trendingData)
+        // anytime trending state changes, the steps above 
+    }, [])
 
-    //console.log(searchedMovies)
+    useEffect(()=>{
+      if(trendingData.length > 0){
+        console.log(trendingData)
+      }
+    }, [trendingData])
 
-    //====================== Function to handle submit =============================
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      //console.log(movies)
-      //getMovieData(movies)
-    };
+        //======================= UseEffect hook to search trending info ================
+        // useEffect(() => {
+        //   const trendingResults = []
+        //   // fetching data from api 
+        //   fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=d6e8c594608b69b399328bb6aaf9ae05`)
+        //     // waiting for response
+        //     .then(response => response.json())
+        //     // set state of searched trending with data pulled by response.json()
+        //     .then(data=>{
+        //       console.log(data)
+        //       trendingResults.push(data.results)
+        //       setTrendingData(trendingResults)
+        //       console.log(trendingResults)
+        //       console.log(trendingData)
+        //     })
+        //     // anytime trending state changes, the steps above 
+        // }, [])
 
+    // console.log(trendingData)
 
 
   return (
+    <>
+    {trendingData.length > 0 ? (  
       <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/863E75A035911DBA10F8D7EE1E433A12A1BF4915670B66597AC31C585A291942/scale?width=1200&aspectRatio=1.78&format=jpeg"
-          alt="First slide"
-        />
+          <img
+            className="d-block w-100"
+            src={`https://image.tmdb.org/t/p/w1280/${trendingData[0].backdrop_path}`}
+            alt="First slide"
+          />
         <Carousel.Caption>
-          <h3>Avengers: Endgame</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>{trendingData[0].title}</h3>
+          <p>{trendingData[0].overview}</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://images6.alphacoders.com/103/1038319.jpg"
+         src={`https://image.tmdb.org/t/p/w1280${trendingData[1].backdrop_path}`}
           alt="Second slide"
         />
-
         <Carousel.Caption>
-          <h3>Mandalorian</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>{trendingData[1].title}</h3>
+          <p>{trendingData[1].overview}</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://static.hbo.com/2022-06/house-of-the-dragon-ka-1920.jpg"
+         src={`https://image.tmdb.org/t/p/w1280${trendingData[2].backdrop_path}`}
           alt="Third slide"
         />
-
         <Carousel.Caption>
-          <h3>House of the Dragon</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <h3>{trendingData[2].title}</h3>
+          <p>{trendingData[2].overview}</p>
         </Carousel.Caption>
       </Carousel.Item>
-    </Carousel>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+         src={`https://image.tmdb.org/t/p/w1280${trendingData[3].backdrop_path}`}
+          alt="Third slide"
+        />
+        <Carousel.Caption>
+          <h3>{trendingData[3].title}</h3>
+          <p>{trendingData[3].overview}</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>        
+    ):(
+          <p>loading</p>
+        )}
+      </>
   );
 }

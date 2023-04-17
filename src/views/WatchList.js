@@ -22,7 +22,19 @@ export default function Album() {
   const [watchList, setWatchList] = useState([])
   
 
-  const viewWatchList = () =>{
+  // const viewWatchList = () =>{
+  //   const WatchList = []
+  //   const subColRef = collection(db, "users", auth.currentUser.uid, "watch_list")
+  //   onSnapshot(subColRef, (querySnapshot) => {
+  //     querySnapshot.forEach((doc) => {
+  //       WatchList.push(doc.data())
+  //     }) 
+  //     setWatchList(WatchList)
+  //     //console.log(WatchList)
+  //   })
+  // }
+
+  useEffect(()=>{
     const WatchList = []
     const subColRef = collection(db, "users", auth.currentUser.uid, "watch_list")
     onSnapshot(subColRef, (querySnapshot) => {
@@ -30,22 +42,9 @@ export default function Album() {
         WatchList.push(doc.data())
       }) 
       setWatchList(WatchList)
-      //console.log(WatchList)
     })
-  }
+  }, [])
 
-// useEffect(()=> {
-//   const WatchList = []
-//   const subColRef = collection(db, "users", auth.currentUser.uid, "watch_list")
-//   onSnapshot(subColRef, (querySnapshot) => {
-//     querySnapshot.forEach((doc) => {
-//       WatchList.push(doc.data())
-//     }) 
-//     setWatchList(WatchList)
-//     viewWatchList()
-//     })
-// }
-// )
 
 
   return (
@@ -73,7 +72,7 @@ export default function Album() {
             <Typography align="center" paragraph>
               Saved movies and shows for later
             </Typography>
-            <Button onClick={viewWatchList} variant="outlined">View Watch List</Button>
+            {/* <Button onClick={viewWatchList} variant="outlined">View Watch List</Button> */}
           </Container>
         </Box>
         

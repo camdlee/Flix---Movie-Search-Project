@@ -67,9 +67,16 @@ body {
 
 
 /* --------------------------------NAVBAR---------------------------- */
+.nav-div{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
 .navbar{
   background-color: black;
   color: white;
+  position: sticky;
+  top: 0;
 }
 .nav-link{
   color: #f7f7f2ff;
@@ -267,6 +274,10 @@ body {
   backdrop-filter: blur(10px);
   /* border: 1px solid rgba(150, 150, 150, 0.5); */
 }
+.explore-actions{
+  display: flex;
+  flex-direction: row;
+}
 
 
 /* -------------------------------- Modal ---------------------------- */
@@ -275,6 +286,7 @@ body {
   backdrop-filter: blur(10px);
   /* border: 1px solid rgba(150, 150, 150, 0.5); */
 }
+
 
 
 /* GLASS EFFECT */

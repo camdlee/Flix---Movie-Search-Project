@@ -1,5 +1,4 @@
 import * as React from 'react';
-import './MovieCard.css';
 import { useState, useContext, useEffect } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -10,6 +9,8 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { doc, setDoc, deleteDoc } from 'firebase/firestore';
 import { db, auth } from '../firebase';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
 // import Alert from '@mui/material/Alert';
 // import Stack from '@mui/material/Stack';
 
@@ -122,6 +123,7 @@ export default function MovieCard({key, title, backdrop, genres, releaseDate, la
             borderRadius: '10px',
           }}
         />
+        {/* <Alert severity="success">Added to Watch List!</Alert> */}
         <CardContent sx={{ flexGrow: 1 }}>
             <Typography gutterBottom variant="h5" component="div">
               {title}

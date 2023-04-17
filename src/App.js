@@ -29,7 +29,8 @@ export default function App() {
           <Route path='/trending' element={<Trending/>}/>
           <Route path='/movie' element={<MovieSearch/>}/>
           <Route path='/watchlist' element={<WatchList/>}/>
-          <Route path='/profile' element={<UserProfile/>}/>f
+          <Route path='/profile' element={<UserProfile/>}/>
+          <Route path='/trending' element={<Trending/>}/>
         </Routes>
         <Footer/>
     </BrowserRouter>
