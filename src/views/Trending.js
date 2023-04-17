@@ -97,7 +97,7 @@ export default function Trending() {
             alt="First slide"
           />
         <Carousel.Caption>
-          <h3>{trendingData[0].title}</h3>
+          <h4>{trendingData[0].title}</h4>
           <p>{trendingData[0].overview}</p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -108,7 +108,7 @@ export default function Trending() {
           alt="Second slide"
         />
           <Carousel.Caption>
-            <h3>{trendingData[1].title}</h3>
+            <h4>{trendingData[1].title}</h4>
             <p>{trendingData[1].overview}</p>
           </Carousel.Caption>
       </Carousel.Item>
@@ -119,7 +119,7 @@ export default function Trending() {
           alt="Third slide"
         />
         <Carousel.Caption>
-          <h3>{trendingData[2].title}</h3>
+          <h4>{trendingData[2].title}</h4>
           <p>{trendingData[2].overview}</p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -130,7 +130,7 @@ export default function Trending() {
           alt="Third slide"
         />
         <Carousel.Caption>
-          <h3>{trendingData[3].title}</h3>
+          <h4>{trendingData[3].title}</h4>
           <p>{trendingData[3].overview}</p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -141,7 +141,7 @@ export default function Trending() {
           alt="Third slide"
         />
         <Carousel.Caption>
-          <h3>{trendingData[4].title}</h3>
+          <h4>{trendingData[4].title}</h4>
           <p>{trendingData[4].overview}</p>
         </Carousel.Caption>
       </Carousel.Item>

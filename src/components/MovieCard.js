@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import { doc, setDoc, deleteDoc } from 'firebase/firestore';
+import { doc, setDoc, deleteDoc, collection, onSnapshot } from 'firebase/firestore';
 import { db, auth } from '../firebase';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
@@ -77,8 +77,10 @@ export default function MovieCard({key, title, backdrop, genres, releaseDate, la
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  // ------------------ Alert that movie was successfully added ---------------
+  const [addedtoWatchList, setAddedtoWatchList] = useState(false);
 
-  //------------------- Function to add to Firestore ---------------------
+  //------------------- Function to add to Firestore ---------------------  
   const addMovieToFirebase = async () => {
     //console.log('starting firestore process')
     try{
@@ -92,12 +94,15 @@ export default function MovieCard({key, title, backdrop, genres, releaseDate, la
         description: description,
         rating: rating
       })
+      setAddedtoWatchList(true)
       console.log('Added to Watch List');
     } 
     catch (error) {
       console.log('Error adding to Watch List')
     }
   }
+
+
 
 
   
@@ -123,7 +128,6 @@ export default function MovieCard({key, title, backdrop, genres, releaseDate, la
             borderRadius: '10px',
           }}
         />
-        {/* <Alert severity="success">Added to Watch List!</Alert> */}
         <CardContent sx={{ flexGrow: 1 }}>
             <Typography gutterBottom variant="h5" component="div">
               {title}
@@ -139,7 +143,9 @@ export default function MovieCard({key, title, backdrop, genres, releaseDate, la
             </Typography>
         </CardContent>
       <CardActions>
+        <div>
           <Button onClick={handleOpen} variant="outlined" size="small" color="primary">See More</Button>
+        </div>
               <Modal
                 open={open}
                 onClose={handleClose}
@@ -162,17 +168,50 @@ export default function MovieCard({key, title, backdrop, genres, releaseDate, la
                       }
                       )}
                   </Typography>
-                  <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                  <Typography id="modal-modal-description" sx={{ my: 2 }}>
                       {description}
                   </Typography>
-                  <Button onClick={addMovieToFirebase} variant="outlined" size="small" sx={{ mt: 2 }}>
-                    Add to Watch List
-                  </Button>
+                  {addedtoWatchList ? (
+                      <Alert variant="outlined" severity="success" size="small" 
+                        sx={{ 
+                          py: 0,
+                          px: 1,
+                          color: 'green',
+                        }}
+                        >
+                        Successfully added!
+                      </Alert>
+                    ):(
+                      <Button onClick={addMovieToFirebase} variant="outlined" size="small">
+                        Add to Watch List
+                      </Button>
+                  )}
                 </Box>
               </Modal>
-          <Button onClick={addMovieToFirebase} variant="outlined" size="small">
-            Add to Watch List
-          </Button>
+              <div
+                sx={{
+                  display: 'flex',
+                  justifyContent:'center',
+                  m: 0,
+                  p: 'auto'
+                }}
+              >
+                {addedtoWatchList ? (
+                        <Alert variant="outlined" severity="success" size="small" 
+                          sx={{ 
+                            py: 0,
+                            px: 1,
+                            color: 'green',
+                          }}
+                          >
+                          Successfully added!
+                        </Alert>
+                      ):(
+                        <Button onClick={addMovieToFirebase} variant="outlined" size="small">
+                          Add to Watch List
+                        </Button>
+                    )}
+              </div>
       </CardActions>
     </Card>
   );
