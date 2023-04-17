@@ -51,9 +51,9 @@ export default function Album() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <main >
+      <main className="watchlist-container">
         {/* Hero unit */}
-        <Box
+        <Box className="watchlist-header"
           sx={{
             pt: 4,
             pb: 4,
@@ -64,13 +64,12 @@ export default function Album() {
               component="h1"
               variant="h2"
               align="center"
-              color="text.primary"
-              fontWeight="medium"
+              fontWeight="regular"
               gutterBottom
             >
               My Watch List
             </Typography>
-            <Typography variant="h6" align="center" color="text.secondary" paragraph>
+            <Typography variant="h6" align="center" paragraph>
               Saved movies and shows for later
             </Typography>
             <Button onClick={viewWatchList} variant="contained">View Watch List</Button>

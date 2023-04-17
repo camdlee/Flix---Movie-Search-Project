@@ -101,7 +101,7 @@ export default function WatchListCard(props) {
         </Typography>
     </CardContent>
         <CardActions>
-                <Button onClick={handleOpen} variant="contained" size="small" color="primary">See More</Button>
+                <Button onClick={handleOpen} variant="outlined" size="small" color="primary">See More</Button>
                     <Modal
                         open={open}
                         onClose={handleClose}
@@ -126,7 +126,7 @@ export default function WatchListCard(props) {
                             </Typography>
                         </Box>
                     </Modal>
-            <Button onClick={removeFromFirebase} size="small">Remove from List</Button>
+            <Button onClick={removeFromFirebase} variant="outlined" color="error" size="small">Remove from List</Button>
         </CardActions>
     </Card>
   );

@@ -56,7 +56,7 @@ body {
 
 /* --------------------------------NAVBAR---------------------------- */
 .navbar{
-  background-color: hwb(208 0% 90%);
+  background-color: black;
   color: white;
 }
 .nav-link{
@@ -115,7 +115,17 @@ body {
   background-image: url('./static/netflix-800x450.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  isolation: isolate;
 }
+.main-signin::after{
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color:rgba(0, 0, 0, 0.5);
+}
+
 .signin-card{
   background-color: rgba(0, 0, 0, 0.8);
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 30);
@@ -129,6 +139,8 @@ body {
 /*----------------------------Avatar---------------------*/
 .avatar-icon{
   border: solid white;
+  margin: 0;
+  padding: 0;
 }
 
 .profile-card{
@@ -168,6 +180,26 @@ body {
   width: auto;
 }
 
+/*------------------------Watch List----------------*/
+.watchlist-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #000e1aff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 5%;
+}
+.watchlist-header{
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 30);
+  border-radius: 20px;
+  padding: 10%;
+  margin: 5%;
+  color: #f7f7f2ff;
+}
+
 
 /* GLASS EFFECT */
 .glass{
@@ -181,6 +213,7 @@ body {
 
 /*-------------------------Footer-----------------------------*/
 footer{
-  background-color: #000e1aff;
+  /* background-color: #000e1aff; */
+  background-color: black;
   color: #f7f7f2ff;
 }

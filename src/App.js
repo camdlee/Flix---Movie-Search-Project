@@ -21,9 +21,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <div className="">
         <Nav/>
-        <div className=''>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/signup' element={<SignUp/>}/>
@@ -33,9 +31,7 @@ export default function App() {
           <Route path='/watchlist' element={<WatchList/>}/>
           <Route path='/profile' element={<UserProfile/>}/>f
         </Routes>
-        </div>
         <Footer/>
-      </div>
     </BrowserRouter>
     );
 }

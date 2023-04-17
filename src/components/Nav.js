@@ -55,11 +55,11 @@ export default function Navbar(){
                             Profile
                         </Link>
                     </li> */}
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <AuthState/>
-                    </li>
-                    <li className="nav-item nav-link">
-                        <Link className="nav-link" to="profile">
+                    </li> */}
+                    <li className="nav-item" sx={{ p: 0}}>
+                        <Link className="nav-link" to="profile" sx={{ p:0 }}>
                             {/* <Dropdown>
                                 <Dropdown.Toggle id="dropdown-basic"> */}
                                     <Avatar className="avatar-icon" href="/profile" alt="User" src="https://pbs.twimg.com/media/EwnMiM2WgAQAH6y.jpg" / >
