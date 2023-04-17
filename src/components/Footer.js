@@ -56,34 +56,16 @@ export default function Footer() {
             <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <ul className="list-unstyled mb-0">
                 <li>
-                    <a href="#!" className="text-white">FAQ</a>
+                    <a href="#!" className="text-blue">FAQ</a>
                 </li>
                 <li>
-                    <a href="#!" className="text-white">Contact Us</a>
+                    <a href="#!" className="text-blue">Contact Us</a>
                 </li>
                 <li>
-                    <a href="#!" className="text-white">Media Center</a>
+                    <a href="#!" className="text-blue">Media Center</a>
                 </li>
                 <li>
-                    <a href="#!" className="text-white">Ways to Watch</a>
-                </li>
-                </ul>
-            </div>
-            {/*Grid column*/}
-            {/*Grid column*/}
-            <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <ul className="list-unstyled mb-0">
-                <li>
-                    <a href="#!" className="text-white">Help Center</a>
-                </li>
-                <li>
-                    <a href="#!" className="text-white">Legal Notices</a>
-                </li>
-                <li>
-                    <a href="#!" className="text-white">Terms of Use</a>
-                </li>
-                <li>
-                    <a href="#!" className="text-white">Corporate Information</a>
+                    <a href="#!" className="text-blue">Ways to Watch</a>
                 </li>
                 </ul>
             </div>
@@ -92,16 +74,16 @@ export default function Footer() {
             <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <ul className="list-unstyled mb-0">
                 <li>
-                    <a href="#!" className="text-white">Redeem Gift Cards</a>
+                    <a href="#!" className="text-blue">Help Center</a>
                 </li>
                 <li>
-                    <a href="#!" className="text-white">Buy Gift Cards</a>
+                    <a href="#!" className="text-blue">Legal Notices</a>
                 </li>
                 <li>
-                    <a href="#!" className="text-white">Shop</a>
+                    <a href="#!" className="text-blue">Terms of Use</a>
                 </li>
                 <li>
-                    <a href="#!" className="text-white">Jobs</a>
+                    <a href="#!" className="text-blue">Corporate Information</a>
                 </li>
                 </ul>
             </div>
@@ -110,16 +92,34 @@ export default function Footer() {
             <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <ul className="list-unstyled mb-0">
                 <li>
-                    <a href="#!" className="text-white">Account</a>
+                    <a href="#!" className="text-blue">Redeem Gift Cards</a>
                 </li>
                 <li>
-                    <a href="#!" className="text-white">Privacy</a>
+                    <a href="#!" className="text-blue">Buy Gift Cards</a>
                 </li>
                 <li>
-                    <a href="#!" className="text-white">Questions?</a>
+                    <a href="#!" className="text-blue">Shop</a>
                 </li>
                 <li>
-                    <a href="#!" className="text-white">More</a>
+                    <a href="#!" className="text-blue">Jobs</a>
+                </li>
+                </ul>
+            </div>
+            {/*Grid column*/}
+            {/*Grid column*/}
+            <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <ul className="list-unstyled mb-0">
+                <li>
+                    <a href="#!" className="text-blue">Account</a>
+                </li>
+                <li>
+                    <a href="#!" className="text-blue">Privacy</a>
+                </li>
+                <li>
+                    <a href="#!" className="text-blue">Questions?</a>
+                </li>
+                <li>
+                    <a href="#!" className="text-blue">More</a>
                 </li>
                 </ul>
             </div>
@@ -133,7 +133,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="text-center p-3" style={{backgroundColor: 'rgba(0, 0, 0, 0.2)'}}>
         © 2023 Copyright:
-        <a className="text-white" href="https://github.com/camdlee"> Cameron Lee</a>
+        <a className="text-blue" href="https://github.com/camdlee"> Cameron Lee</a>
         </div>
         {/* Copyright */}
     </footer>

@@ -20,12 +20,12 @@ export default function WatchListCard(props) {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: '60%',
-    bgcolor: 'background.paper',
+    width: '50%',
+    bgcolor: '#000e1aff',
+    color: '#f7f7f2ff',
     //backgroundImage: `http://image.tmdb.org/t/p/w1280${backdrop}`,
     border: '1px solid #000',
     borderRadius: '10px',
-    boxShadow: 24,
     p: 4,
   };
 
@@ -78,7 +78,7 @@ export default function WatchListCard(props) {
 
 
   return (
-    <Card className="watchlist-card"
+    <Card className="watchlist-card grow"
     sx={{ 
         height: '100%', 
         display: 'flex', 
@@ -96,32 +96,38 @@ export default function WatchListCard(props) {
     />
     <CardContent sx={{ flexGrow: 1 }}>
         <Typography gutterBottom variant="h5" component="h2">
-            Title: {props.watchList.title}
+            {props.watchList.title}
         </Typography>
     </CardContent>
         <CardActions>
                 <Button onClick={handleOpen} variant="outlined" size="small" color="primary">See More</Button>
-                    <Modal
+                    <Modal 
                         open={open}
                         onClose={handleClose}
                         aria-labelledby="modal-modal-title"
                         aria-describedby="modal-modal-description"
                     >
                         <Box sx={style}>
-                            <Typography id="modal-modal-title" variant="h6" component="h2">
-                                Title: {props.watchList.title}
+                            <CardMedia
+                                component="img"
+                                height= 'auto'
+                                image={`https://image.tmdb.org/t/p/w1280${props.watchList.backdrop}`}
+                                alt="movie poster"
+                            />
+                            <Typography id="modal-modal-title" variant="h6" component="h2" sx={{ mt: 2 }}>
+                               {props.watchList.title}
                             </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                Released Date: {props.watchList.releaseDate}
+                            <Typography variant="body2">
+                                Release Date: {props.watchList.releaseDate}
                             </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                Genres: {movieGenres.map(genre => {
+                            <Typography variant="body2">
+                                {movieGenres.map(genre => {
                                         return(genre+" | ")
                                         }
                                         )}
                             </Typography>
                             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                                Desciption: {props.watchList.description}
+                                {props.watchList.description}
                             </Typography>
                         </Box>
                     </Modal>

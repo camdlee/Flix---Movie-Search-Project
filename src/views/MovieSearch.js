@@ -168,7 +168,7 @@ export default function MovieSearch() {
               required
               fullWidth
               id="movie"
-              label=""
+              label="Search"
               name="movie"
               onChange={(event) => {setMovies(event.target.value)}}
               autoFocus

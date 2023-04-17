@@ -54,6 +54,18 @@ body {
   height: 100%;
 }
 
+
+/* --------------------------------Global Effects---------------------------- */
+.grow{
+  transition: .3s ease-in;
+}
+.grow:hover{
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+}
+
+
 /* --------------------------------NAVBAR---------------------------- */
 .navbar{
   background-color: black;
@@ -71,7 +83,29 @@ body {
 .navbar-collapse{
   justify-content: flex-end;
 }
+.fancy-link{
+  text-decoration: none;
+  position: relative;
+}
+.fancy-link::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 250ms ease-in;
+}
+.fancy-link:hover::after{
+  transform: scaleX(1);
+  transform-origin: left;
+}
 
+
+/*-------------------------------Home Page-----------------------------*/
 .welcome-container{
   height: 100vh;
   display: flex;
@@ -100,8 +134,6 @@ body {
   border-radius: 20px;
   padding: 2%;
 }
-
-
 
 
 
@@ -181,6 +213,7 @@ body {
   width: auto;
 }
 
+
 /*------------------------Watch List----------------*/
 .watchlist-container{
   display: flex;
@@ -236,6 +269,13 @@ body {
 }
 
 
+/* -------------------------------- Modal ---------------------------- */
+.modal{
+  background: linear-gradient(135deg, rgba(255,255,255, .2), rgba(255,255,255, 0));
+  backdrop-filter: blur(10px);
+  /* border: 1px solid rgba(150, 150, 150, 0.5); */
+}
+
 
 /* GLASS EFFECT */
 .glass{
@@ -251,5 +291,5 @@ body {
 footer{
   /* background-color: #000e1aff; */
   background-color: black;
-  color: #f7f7f2ff;
+  color: #0064b2ff;
 }

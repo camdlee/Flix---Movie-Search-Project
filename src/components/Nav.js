@@ -28,25 +28,25 @@ export default function Navbar(){
                 <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <Link className="nav-link" to="/">Home<span className="sr-only">(current)</span></Link>
+                        <Link className="nav-link fancy-link" to="/">Home<span className="sr-only">(current)</span></Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/signup">
+                        <Link className="nav-link fancy-link" to="/signup">
                             Sign Up
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/signin">
+                        <Link className="nav-link fancy-link" to="/signin">
                             Sign In
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/movie">
+                        <Link className="nav-link fancy-link" to="/movie">
                             Explore
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/watchlist">
+                        <Link className="nav-link fancy-link" to="/watchlist">
                             Watch List
                         </Link>
                     </li>

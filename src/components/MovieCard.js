@@ -21,12 +21,12 @@ export default function MovieCard({key, title, backdrop, genres, releaseDate, la
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: '60%',
-    bgcolor: 'background.paper',
+    width: '50%',
+    bgcolor: '#000e1aff',
+    color: '#f7f7f2ff',
     //backgroundImage: `http://image.tmdb.org/t/p/w1280${backdrop}`,
     border: '1px solid #000',
-    borderRadius: '20px',
-    boxShadow: '24 white',
+    borderRadius: '10px',
     p: 4,
   };
 
@@ -101,7 +101,7 @@ export default function MovieCard({key, title, backdrop, genres, releaseDate, la
 
   
   return (
-    <Card className="movie-card"
+    <Card className="movie-card grow"
     sx={{ 
       height: '100%', 
       display:'flex', 
@@ -119,7 +119,6 @@ export default function MovieCard({key, title, backdrop, genres, releaseDate, la
           image={`http://image.tmdb.org/t/p/w342${poster}`}
           alt="movie poster"
           sx={{
-            border: '1px solid #000',
             borderRadius: '10px',
           }}
         />
@@ -138,7 +137,7 @@ export default function MovieCard({key, title, backdrop, genres, releaseDate, la
             </Typography>
         </CardContent>
       <CardActions>
-          <Button onClick={handleOpen} variant="contained" size="small" color="primary" sx={{backgroundColor: '#003a66ff', color: '#f7f7f2ff'}}>See More</Button>
+          <Button onClick={handleOpen} variant="outlined" size="small" color="primary">See More</Button>
               <Modal
                 open={open}
                 onClose={handleClose}
@@ -146,11 +145,17 @@ export default function MovieCard({key, title, backdrop, genres, releaseDate, la
                 aria-describedby="modal-modal-description"
               >
                 <Box sx={modalStyle}>
-                  <Typography id="modal-modal-title" variant="h6" component="h2">
+                  <CardMedia
+                                component="img"
+                                height= 'auto'
+                                image={`https://image.tmdb.org/t/p/w1280${backdrop}`}
+                                alt="movie poster"
+                            />
+                  <Typography id="modal-modal-title" variant="h6" component="h2" sx={{ mt: 2 }}>
                       {title}
                   </Typography>
                   <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                      Genres: {movieGenres.map(genre => {
+                      {movieGenres.map(genre => {
                         return(genre+" | ")
                       }
                       )}
@@ -158,12 +163,12 @@ export default function MovieCard({key, title, backdrop, genres, releaseDate, la
                   <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                       {description}
                   </Typography>
-                  <Button onClick={addMovieToFirebase} variant="contained" size="small" color="primary" sx={{marginTop: '3%', backgroundColor: '#003a66ff', color: '#f7f7f2ff'}}>
+                  <Button onClick={addMovieToFirebase} variant="outlined" size="small" sx={{ mt: 2 }}>
                     Add to Watch List
                   </Button>
                 </Box>
               </Modal>
-          <Button onClick={addMovieToFirebase} variant="contained" size="small" sx={{backgroundColor: '#003a66ff', color: '#f7f7f2ff'}}>
+          <Button onClick={addMovieToFirebase} variant="outlined" size="small">
             Add to Watch List
           </Button>
       </CardActions>
