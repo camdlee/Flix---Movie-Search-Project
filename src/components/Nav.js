@@ -42,7 +42,7 @@ export default function Navbar(){
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/movie">
-                            Search
+                            Explore
                         </Link>
                     </li>
                     <li className="nav-item">

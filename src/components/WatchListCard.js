@@ -78,14 +78,13 @@ export default function WatchListCard(props) {
 
 
   return (
-    <Card sx={{ 
+    <Card className="watchlist-card"
+    sx={{ 
         height: '100%', 
         display: 'flex', 
         flexDirection: 'column', 
         backgroundColor: '#000e1aff',
         color: '#f7f7f2ff',
-        borderColor: '#000e1aff',
-        border: '1px solid #000',
         borderRadius: '10px',
         p: 2, 
     }}>

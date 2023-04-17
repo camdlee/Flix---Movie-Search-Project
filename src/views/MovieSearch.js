@@ -146,19 +146,19 @@ export default function MovieSearch() {
 
   return (
     <ThemeProvider theme={theme}>
+      <main className="explore-container">
       <Container component="main">
         <CssBaseline />
-        <Box
+        <Box 
+          className="explore-header"
           sx={{
-            marginTop: 8,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             }}
         >
-            <img src=''/>
           <Typography component="h1" variant="h5">
-            Search Movies and Shows
+            Explore Movies and Shows
           </Typography>
 
           {/* -------------------- INPUT SEARCH BAR ------------------------- */}
@@ -172,6 +172,7 @@ export default function MovieSearch() {
               name="movie"
               onChange={(event) => {setMovies(event.target.value)}}
               autoFocus
+              sx={{ borderRadius: '5px', backgroundColor: 'white' }}
             />
             <div>
 
@@ -211,14 +212,15 @@ export default function MovieSearch() {
               </Dropdown>
 
               {/* -------------------- RESET FILTER ------------------------- */}
-              <Button onClick={resetFilter} variant="contained" size="small" color="primary">
+              <Button onClick={resetFilter} variant="outlined" size="small" color="primary">
                 Reset Filter
               </Button>
             </div>
           </Box>
+        </Box>
 
           {/* -------------------- MOVIE RESULTS CARD DISPLAY ------------------------- */}
-            <Box sx={{ flexGrow: 1, paddingTop: '50px', }}>
+            <Box sx={{ flexGrow: 1, paddingTop: '20px', }}>
               <Container maxWidth="lg">
                     <Grid container spacing={3}>
                         {filteredResults.map(movie => {
@@ -241,8 +243,8 @@ export default function MovieSearch() {
                     </Grid>
               </Container>
             </Box>
-        </Box>
       </Container>
+      </main>
     </ThemeProvider>
   )
 }

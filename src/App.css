@@ -127,6 +127,7 @@ body {
 }
 
 .signin-card{
+  background: linear-gradient(135deg, rgba(255,255,255, .1), rgba(255,255,255, 0));
   background-color: rgba(0, 0, 0, 0.8);
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 30);
   border-radius: 20px;
@@ -192,13 +193,48 @@ body {
   padding-bottom: 5%;
 }
 .watchlist-header{
-  background-color: rgba(0, 0, 0, 0.8);
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 30);
+  background-color: rgba(27, 27, 27, 0.8);
+  background: linear-gradient(135deg, rgba(255,255,255, .1), rgba(255,255,255, 0));
+  box-shadow: 0 0 20px 0 rgba(255, 255, 255, 1);
   border-radius: 20px;
   padding: 10%;
   margin: 5%;
   color: #f7f7f2ff;
+  width: 60%;
 }
+.watchlist-card{
+  background: linear-gradient(135deg, rgba(255,255,255, .2), rgba(255,255,255, 0));
+  /* border: 2px solid rgba(150, 150, 150, 0.5); */
+}
+
+
+/*----------------------Search Movie----------------------*/
+.explore-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #000e1aff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 5%;
+}
+.explore-header{
+  background-color: rgba(27, 27, 27, 0.8);
+  background: linear-gradient(135deg, rgba(255,255,255, .1), rgba(255,255,255, 0));
+  box-shadow: 0 0 20px 0 rgba(255, 255, 255, 1);
+  border-radius: 20px;
+  padding: 2%;
+  margin: 5%;
+  color: #f7f7f2ff;
+  /* border: 3px solid rgba(177, 177, 177, 0.5); */
+}
+.movie-card{
+  background: linear-gradient(135deg, rgba(255,255,255, .2), rgba(255,255,255, 0));
+  backdrop-filter: blur(10px);
+  /* border: 1px solid rgba(150, 150, 150, 0.5); */
+}
+
 
 
 /* GLASS EFFECT */

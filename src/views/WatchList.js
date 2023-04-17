@@ -57,22 +57,23 @@ export default function Album() {
           sx={{
             pt: 4,
             pb: 4,
+            width: '60%',
           }}
         >
           <Container maxWidth="sm">
             <Typography
               component="h1"
-              variant="h2"
+              variant="h4"
               align="center"
-              fontWeight="regular"
+              fontWeight="medium"
               gutterBottom
             >
               My Watch List
             </Typography>
-            <Typography variant="h6" align="center" paragraph>
+            <Typography align="center" paragraph>
               Saved movies and shows for later
             </Typography>
-            <Button onClick={viewWatchList} variant="contained">View Watch List</Button>
+            <Button onClick={viewWatchList} variant="outlined">View Watch List</Button>
           </Container>
         </Box>
         
