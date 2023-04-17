@@ -107,10 +107,10 @@ export default function Trending() {
          src={`https://image.tmdb.org/t/p/w1280${trendingData[1].backdrop_path}`}
           alt="Second slide"
         />
-        <Carousel.Caption>
-          <h3>{trendingData[1].title}</h3>
-          <p>{trendingData[1].overview}</p>
-        </Carousel.Caption>
+          <Carousel.Caption>
+            <h3>{trendingData[1].title}</h3>
+            <p>{trendingData[1].overview}</p>
+          </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -132,6 +132,17 @@ export default function Trending() {
         <Carousel.Caption>
           <h3>{trendingData[3].title}</h3>
           <p>{trendingData[3].overview}</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+         src={`https://image.tmdb.org/t/p/w1280${trendingData[4].backdrop_path}`}
+          alt="Third slide"
+        />
+        <Carousel.Caption>
+          <h3>{trendingData[4].title}</h3>
+          <p>{trendingData[4].overview}</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>        
