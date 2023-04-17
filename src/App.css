@@ -78,6 +78,11 @@ body {
   position: sticky;
   top: 0;
 }
+.nav-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .nav-link{
   color: #f7f7f2ff;
 }

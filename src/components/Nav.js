@@ -55,9 +55,9 @@ export default function Navbar(){
                             Profile
                         </Link>
                     </li> */}
-                    {/* <li className="nav-item">
+                    <li className="nav-item">
                         <AuthState/>
-                    </li> */}
+                    </li>
                     <li className="nav-item" sx={{ p: 0}}>
                         <Link className="nav-link" to="profile" sx={{ p:0 }}>
                             {/* <Dropdown>
