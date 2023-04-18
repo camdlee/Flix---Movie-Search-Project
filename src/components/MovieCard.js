@@ -1,18 +1,15 @@
-import * as React from 'react';
-import { useState, useContext, useEffect } from 'react';
+import React from 'react';
+import { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import { Button, CardActions } from '@mui/material';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import { doc, setDoc, deleteDoc, collection, onSnapshot } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 import { db, auth } from '../firebase';
 import Alert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
-// import Alert from '@mui/material/Alert';
-// import Stack from '@mui/material/Stack';
 
 
 export default function MovieCard({key, title, backdrop, genres, releaseDate, language, poster, description, rating}) {
@@ -25,7 +22,6 @@ export default function MovieCard({key, title, backdrop, genres, releaseDate, la
     width: '50%',
     bgcolor: '#000e1aff',
     color: '#f7f7f2ff',
-    //backgroundImage: `http://image.tmdb.org/t/p/w1280${backdrop}`,
     border: '1px solid #000',
     borderRadius: '10px',
     p: 4,

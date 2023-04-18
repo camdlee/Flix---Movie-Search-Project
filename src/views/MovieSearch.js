@@ -8,12 +8,9 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import MovieCard from '../components/MovieCard';
-import TestBox from '../components/TestBox';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 

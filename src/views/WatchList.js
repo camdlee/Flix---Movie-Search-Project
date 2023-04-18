@@ -1,16 +1,11 @@
 import { useEffect, useState } from 'react';
-import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { doc, getDoc, collection, onSnapshot, QuerySnapshot } from 'firebase/firestore';
+import { collection, onSnapshot } from 'firebase/firestore';
 import { auth, db } from '../firebase';
 import WatchListCard from '../components/WatchListCard';
 
@@ -34,7 +29,7 @@ export default function Album() {
   //   })
   // }
 
-  //-----------------useEffect hook to display stored movies in watchlist from firestore-----------------
+  //-----------------UseEffect hook to display stored movies in watchlist from firestore-----------------
   useEffect(()=>{
     const WatchList = []
     const subColRef = collection(db, "users", auth.currentUser.uid, "watch_list")
@@ -44,7 +39,7 @@ export default function Album() {
       }) 
       setWatchList(WatchList)
     })
-  }, [])
+  }, [watchList])
 
   useEffect(()=>{
     if(watchList.length > 0){
@@ -53,10 +48,6 @@ export default function Album() {
   }, [watchList]
   )
 
-  //------------------- UseEffect hook to render once movie is removed from list --------------------
-  useEffect(()=>{
-    
-  }, [watchList])
 
 
 
