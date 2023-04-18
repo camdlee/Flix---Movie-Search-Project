@@ -34,6 +34,7 @@ export default function Album() {
   //   })
   // }
 
+  //-----------------useEffect hook to display stored movies in watchlist from firestore-----------------
   useEffect(()=>{
     const WatchList = []
     const subColRef = collection(db, "users", auth.currentUser.uid, "watch_list")
@@ -51,6 +52,12 @@ export default function Album() {
     }
   }, [watchList]
   )
+
+  //------------------- UseEffect hook to render once movie is removed from list --------------------
+  useEffect(()=>{
+    
+  }, [watchList])
+
 
 
   return (

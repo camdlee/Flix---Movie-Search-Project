@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Trending from '../components/Trending'
 import Classics from '../components/Classics'
+import SciFi from '../components/SciFi'
 // import './Home.css';
 
 export default class Home extends Component {
@@ -30,7 +31,7 @@ export default class Home extends Component {
             Science-Fiction
           </h4>
           <div>
-            <Classics/>
+            <SciFi/>
           </div>
         </div>
       </div>
