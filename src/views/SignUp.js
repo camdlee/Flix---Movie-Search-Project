@@ -79,6 +79,7 @@ export default function SignUp() {
                 uid: user.uid,
                 email: user.email
             })
+            navigate('/')
         }
         if(Object.keys(user).length > 0) {
             addUserToFirebase()

@@ -31,7 +31,7 @@ export default function Navbar(){
         <div className="nav-div">
             <nav className="navbar navbar-expand-lg">
                 <Link className="navbar-brand" to="/" sx={{color: 'white'}}>
-                    Flix
+                    FLIX
                 </Link>
                 <button 
                     className="navbar-toggler" 

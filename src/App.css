@@ -120,38 +120,76 @@ body {
 
 /*-------------------------------Home Page-----------------------------*/
 .home-header{
-
   display: flex;
   flex-direction: column;  
-  align-items: center;
-  justify-content: center;
   font-weight: bold;
-  margin: 2%;
-  background-color: rgba(0, 0, 0, 0.8);
+  margin: 1.5% 0;
+  padding-left: 5%;
+  /* background-color: rgba(0, 0, 0, 0.8);
   background: linear-gradient(180deg, rgba(255,255,255, .1), rgba(255,255,255, 0));
-  border-radius: 20px;
+  border-radius: 20px; */
 }
 .home-trending-container{
   min-height: 100vh;
 }
 .home-trending-carousel{
   padding: 0 18%;
+  /* background-color:rgba(255, 255, 255, 0.01); */
 }
 .carousel{
-  border-radius: 10px;
-  box-shadow: 0 0 20px 0 rgba(255, 255, 255, 1);
+  border-radius: 20px;
+  box-shadow: 0 0 50px 0 rgba(255, 255, 255, .5);
 }
 .slide{
-  border-radius: 10px;
+  border-radius: 20px;
 }
 .carousel-item{
-  border-radius: 10px;
+  border-radius: 20px;
 }
 .carousel-caption{
   background-color:rgba(0, 0, 0, 0.6);
-  border-radius: 20px;
+  border-radius: 15px;
   padding: 1%;
 }
+.secondary-row{
+  margin: 2% 0;
+  margin-bottom: 5%;
+}
+.home-secondary-header{
+  display: flex;
+  flex-direction: column;  
+  font-weight: bold;
+  margin-top: 3%;
+  margin-bottom: 2%;
+  padding-left: 6%;
+  /* background-color: rgba(0, 0, 0, 0.8); */
+  /* background: linear-gradient(180deg, rgba(255,255,255, .1), rgba(255,255,255, 0)); */
+  border-radius: 20px;
+}
+.classics-card-container{
+  background-color:rgba(255, 255, 255, 0.05);
+  width: 100vw;
+  height: 100%;
+  padding: 1%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.classics-card{
+  background-color:rgba(0, 0, 0, 0.6);
+  width: 15%;
+  height: 100%;
+  border-radius: 5px;
+  margin: 1%;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px 5px rgba(5, 5, 5, 10);
+}
+.d-block{
+  border-radius: 5px;
+}
+
 
 /* -----------------------Sign In-------------------- */
 .main-signin{

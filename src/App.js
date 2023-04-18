@@ -9,7 +9,7 @@ import MovieSearch from './views/MovieSearch';
 import WatchList from './views/WatchList';
 import UserProfile from './views/UserProfile';
 import Footer from './components/Footer';
-import Trending from './views/Trending';
+import Trending from './components/Trending';
 import Navbar from './components/Nav';
 
 // API key: 8f106539

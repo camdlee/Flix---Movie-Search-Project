@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Trending from './Trending'
+import Trending from '../components/Trending'
+import Classics from '../components/Classics'
 // import './Home.css';
 
 export default class Home extends Component {
@@ -13,10 +14,24 @@ export default class Home extends Component {
     return (
       <div className='home-trending-container'>
         <div className="home-header">
-          <h1>Trending</h1>
+          <h3>Trending</h3>
         </div>
         <div className='home-trending-carousel'>
           <Trending/>
+        </div>
+        <div className='secondary-row'>
+          <h4 className="home-secondary-header">
+            Classics
+          </h4>
+          <div>
+            <Classics/>
+          </div>
+          <h4 className="home-secondary-header">
+            Science-Fiction
+          </h4>
+          <div>
+            <Classics/>
+          </div>
         </div>
       </div>
     )

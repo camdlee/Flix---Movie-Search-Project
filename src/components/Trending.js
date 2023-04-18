@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
-import MovieCard from '../components/MovieCard';
+import MovieCard from './MovieCard';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Carousel from 'react-bootstrap/Carousel';
