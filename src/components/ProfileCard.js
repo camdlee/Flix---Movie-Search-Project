@@ -129,25 +129,25 @@ export default function ProfileCard() {
                 <div className="col-md-6">
                   <div className="card mb-4 mb-md-0">
                     <div className="card-body">
-                      <p className="mb-4"><span className="text-primary font-italic me-1">assigment</span> Project Status
+                      <p className="mb-4"><h5>Most Watched</h5>
                       </p>
-                      <p className="mb-1" style={{fontSize: '.77rem'}}>Web Design</p>
+                      <p className="mb-1" style={{fontSize: '.77rem'}}>Too Hot to Handle</p>
                       <div className="progress rounded" style={{height: 5}}>
                         <div className="progress-bar" role="progressbar" style={{width: '80%'}} aria-valuenow={80} aria-valuemin={0} aria-valuemax={100} />
                       </div>
-                      <p className="mt-4 mb-1" style={{fontSize: '.77rem'}}>Website Markup</p>
+                      <p className="mt-4 mb-1" style={{fontSize: '.77rem'}}>Real Housewives of New York</p>
                       <div className="progress rounded" style={{height: 5}}>
                         <div className="progress-bar" role="progressbar" style={{width: '72%'}} aria-valuenow={72} aria-valuemin={0} aria-valuemax={100} />
                       </div>
-                      <p className="mt-4 mb-1" style={{fontSize: '.77rem'}}>One Page</p>
+                      <p className="mt-4 mb-1" style={{fontSize: '.77rem'}}>The Kardashians</p>
                       <div className="progress rounded" style={{height: 5}}>
                         <div className="progress-bar" role="progressbar" style={{width: '89%'}} aria-valuenow={89} aria-valuemin={0} aria-valuemax={100} />
                       </div>
-                      <p className="mt-4 mb-1" style={{fontSize: '.77rem'}}>Mobile Template</p>
+                      <p className="mt-4 mb-1" style={{fontSize: '.77rem'}}>Love is Blind</p>
                       <div className="progress rounded" style={{height: 5}}>
                         <div className="progress-bar" role="progressbar" style={{width: '55%'}} aria-valuenow={55} aria-valuemin={0} aria-valuemax={100} />
                       </div>
-                      <p className="mt-4 mb-1" style={{fontSize: '.77rem'}}>Backend API</p>
+                      <p className="mt-4 mb-1" style={{fontSize: '.77rem'}}>90 Day Fiance</p>
                       <div className="progress rounded mb-2" style={{height: 5}}>
                         <div className="progress-bar" role="progressbar" style={{width: '66%'}} aria-valuenow={66} aria-valuemin={0} aria-valuemax={100} />
                       </div>
@@ -157,25 +157,25 @@ export default function ProfileCard() {
                 <div className="col-md-6">
                   <div className="card mb-4 mb-md-0">
                     <div className="card-body">
-                      <p className="mb-4"><span className="text-primary font-italic me-1">assigment</span> Project Status
+                      <p className="mb-4"><h5>Favorite Genres</h5>
                       </p>
-                      <p className="mb-1" style={{fontSize: '.77rem'}}>Web Design</p>
+                      <p className="mb-1" style={{fontSize: '.77rem'}}>Reality</p>
                       <div className="progress rounded" style={{height: 5}}>
                         <div className="progress-bar" role="progressbar" style={{width: '80%'}} aria-valuenow={80} aria-valuemin={0} aria-valuemax={100} />
                       </div>
-                      <p className="mt-4 mb-1" style={{fontSize: '.77rem'}}>Website Markup</p>
+                      <p className="mt-4 mb-1" style={{fontSize: '.77rem'}}>Drama</p>
                       <div className="progress rounded" style={{height: 5}}>
                         <div className="progress-bar" role="progressbar" style={{width: '72%'}} aria-valuenow={72} aria-valuemin={0} aria-valuemax={100} />
                       </div>
-                      <p className="mt-4 mb-1" style={{fontSize: '.77rem'}}>One Page</p>
+                      <p className="mt-4 mb-1" style={{fontSize: '.77rem'}}>Romance</p>
                       <div className="progress rounded" style={{height: 5}}>
-                        <div className="progress-bar" role="progressbar" style={{width: '89%'}} aria-valuenow={89} aria-valuemin={0} aria-valuemax={100} />
+                        <div className="progress-bar" role="progressbar" style={{width: '89%'}} aria-valuenow={70} aria-valuemin={0} aria-valuemax={100} />
                       </div>
-                      <p className="mt-4 mb-1" style={{fontSize: '.77rem'}}>Mobile Template</p>
+                      <p className="mt-4 mb-1" style={{fontSize: '.77rem'}}>Documentary</p>
                       <div className="progress rounded" style={{height: 5}}>
                         <div className="progress-bar" role="progressbar" style={{width: '55%'}} aria-valuenow={55} aria-valuemin={0} aria-valuemax={100} />
                       </div>
-                      <p className="mt-4 mb-1" style={{fontSize: '.77rem'}}>Backend API</p>
+                      <p className="mt-4 mb-1" style={{fontSize: '.77rem'}}>Science Fiction</p>
                       <div className="progress rounded mb-2" style={{height: 5}}>
                         <div className="progress-bar" role="progressbar" style={{width: '66%'}} aria-valuenow={66} aria-valuemin={0} aria-valuemax={100} />
                       </div>
