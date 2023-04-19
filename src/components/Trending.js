@@ -71,55 +71,60 @@ export default function Trending() {
     <>
     {trendingData.length > 0 ? (  
       <Carousel activeIndex={index} onSelect={handleSelect}>
-      <Carousel.Item>
+      <Carousel.Item style={{ borderRadius: '20px' }}>
           <img
             className="d-block w-100"
             src={`https://image.tmdb.org/t/p/w1280/${trendingData[0].backdrop_path}`}
             alt="First slide"
+            style={{ borderRadius: '20px' }}
           />
         <Carousel.Caption>
           <h4>{trendingData[0].title}</h4>
           <p>{trendingData[0].overview}</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
+      <Carousel.Item style={{ borderRadius: '20px' }}>
         <img
           className="d-block w-100"
          src={`https://image.tmdb.org/t/p/w1280${trendingData[1].backdrop_path}`}
           alt="Second slide"
+          style={{ borderRadius: '20px' }}
         />
           <Carousel.Caption>
             <h4>{trendingData[1].title}</h4>
             <p>{trendingData[1].overview}</p>
           </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
+      <Carousel.Item style={{ borderRadius: '20px' }}>
         <img
           className="d-block w-100"
          src={`https://image.tmdb.org/t/p/w1280${trendingData[2].backdrop_path}`}
           alt="Third slide"
+          style={{ borderRadius: '20px' }}
         />
         <Carousel.Caption>
           <h4>{trendingData[2].title}</h4>
           <p>{trendingData[2].overview}</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
+      <Carousel.Item style={{ borderRadius: '20px' }}>
         <img
           className="d-block w-100"
          src={`https://image.tmdb.org/t/p/w1280${trendingData[3].backdrop_path}`}
           alt="Third slide"
+          style={{ borderRadius: '20px' }}
         />
         <Carousel.Caption>
           <h4>{trendingData[3].title}</h4>
           <p>{trendingData[3].overview}</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
+      <Carousel.Item style={{ borderRadius: '20px' }}>
         <img
           className="d-block w-100"
          src={`https://image.tmdb.org/t/p/w1280${trendingData[4].backdrop_path}`}
           alt="Third slide"
+          style={{ borderRadius: '20px' }}
         />
         <Carousel.Caption>
           <h4>{trendingData[4].title}</h4>

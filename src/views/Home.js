@@ -13,25 +13,27 @@ export default class Home extends Component {
   render() {
     //console.log('I am being rendered')
     return (
-      <div className='home-trending-container'>
-        {/* <div className="home-header">
-          <h3>Trending</h3>
-        </div> */}
-        <div className='home-trending-carousel'>
-          <Trending/>
-        </div>
-        <div className='secondary-row'>
-          <h4 className="home-secondary-header">
-            Classics
-          </h4>
-          <div>
-            <Classics/>
+      <div className="home-container">
+        <div className='home-trending-container'>
+          {/* <div className="home-header">
+            <h3>Trending</h3>
+          </div> */}
+          <div className='home-trending-carousel'>
+            <Trending/>
           </div>
-          <h4 className="home-secondary-header">
-            Science-Fiction
-          </h4>
-          <div>
-            <SciFi/>
+          <div className='secondary-row'>
+            <h4 className="home-secondary-header">
+              Classics
+            </h4>
+            <div>
+              <Classics/>
+            </div>
+            <h4 className="home-secondary-header">
+              Science-Fiction
+            </h4>
+            <div>
+              <SciFi/>
+            </div>
           </div>
         </div>
       </div>
