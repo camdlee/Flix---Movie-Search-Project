@@ -41,6 +41,14 @@
     transform: rotate(360deg);
   }
 }
+@font-face {
+  font-family: brandFont;
+  src: url(./static/fonts/paladins.ttf);
+}
+@font-face {
+  font-family: brandFontstraight;
+  src: url(./static/fonts/paladinsstraight.ttf);
+}
 
 .main-app{
   display: flex;
@@ -73,7 +81,7 @@ body {
   z-index: 1;
 }
 .navbar{
-  background-color: black;
+  background-color: rgb(12, 12, 12);
   color: white;
   position: sticky;
   top: 0;
@@ -88,7 +96,7 @@ body {
   color: #f7f7f2ff;
 }
 .navbar-brand{
-  font-weight: bold;
+  font-family: brandFont;
 }
 .collapse{
   justify-content: flex-end;
@@ -133,7 +141,7 @@ body {
   min-height: 100vh;
 }
 .home-trending-carousel{
-  padding: 0 18%;
+  padding: 2.5% 17%;
   /* background-color:rgba(255, 255, 255, 0.01); */
 }
 .carousel{
@@ -160,8 +168,8 @@ body {
   flex-direction: column;  
   font-weight: bold;
   margin-top: 3%;
-  margin-bottom: 2%;
-  padding-left: 6%;
+  margin-bottom: 1%;
+  padding-left: 4%;
   /* background-color: rgba(0, 0, 0, 0.8); */
   /* background: linear-gradient(180deg, rgba(255,255,255, .1), rgba(255,255,255, 0)); */
   border-radius: 20px;
@@ -322,8 +330,10 @@ body {
   /* border: 1px solid rgba(150, 150, 150, 0.5); */
 }
 .explore-actions{
+  width: 50%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 
@@ -349,6 +359,6 @@ body {
 /*-------------------------Footer-----------------------------*/
 footer{
   /* background-color: #000e1aff; */
-  background-color: black;
+  background-color: rgb(12, 12, 12);
   color: #0064b2ff;
 }

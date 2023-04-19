@@ -65,25 +65,6 @@ export default function Trending() {
       }
     }, [trendingData])
 
-        //======================= UseEffect hook to search trending info ================
-        // useEffect(() => {
-        //   const trendingResults = []
-        //   // fetching data from api 
-        //   fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=d6e8c594608b69b399328bb6aaf9ae05`)
-        //     // waiting for response
-        //     .then(response => response.json())
-        //     // set state of searched trending with data pulled by response.json()
-        //     .then(data=>{
-        //       console.log(data)
-        //       trendingResults.push(data.results)
-        //       setTrendingData(trendingResults)
-        //       console.log(trendingResults)
-        //       console.log(trendingData)
-        //     })
-        //     // anytime trending state changes, the steps above 
-        // }, [])
-
-    // console.log(trendingData)
 
 
   return (

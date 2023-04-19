@@ -12,7 +12,11 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
-
+import FormHelperText from '@mui/material/FormHelperText';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 
 //API key: d6e8c594608b69b399328bb6aaf9ae05
@@ -173,9 +177,29 @@ export default function MovieSearch() {
             />
           </Box>
             <div className="explore-actions">
+              {/* <FormControl variant="outlined" color="primary" sx={{ m: 1, minWidth: 120 }}>
+                <Select
+                  value='Genre'
+                  onChange={handleFilter}
+                  displayEmpty
+                  inputProps={{ 'aria-label': 'Without label' }}
+                >
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+                <FormHelperText>Filter by Genre</FormHelperText>
+              </FormControl> */}              
+              {/* -------------------- RESET FILTER ------------------------- */}
+              <Button onClick={resetFilter} variant="outlined" color="primary">
+                Reset Filter
+              </Button>
               {/* -------------------- DROPDOWN FILTER ------------------------- */}
               <Dropdown>
-                <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                <Dropdown.Toggle variant="primary" id="dropdown-basic" className='bg-transparent text-primary'>
                   Filter By Genre
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
@@ -207,11 +231,6 @@ export default function MovieSearch() {
                   <Dropdown.Item onClick={handleFilter}>Western</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-
-              {/* -------------------- RESET FILTER ------------------------- */}
-              <Button onClick={resetFilter} variant="outlined" color="primary">
-                Reset Filter
-              </Button>
             </div>
         </Box>
 

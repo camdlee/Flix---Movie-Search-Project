@@ -14,9 +14,9 @@ export default class Home extends Component {
     //console.log('I am being rendered')
     return (
       <div className='home-trending-container'>
-        <div className="home-header">
+        {/* <div className="home-header">
           <h3>Trending</h3>
-        </div>
+        </div> */}
         <div className='home-trending-carousel'>
           <Trending/>
         </div>
