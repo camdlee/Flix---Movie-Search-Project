@@ -131,7 +131,7 @@ body {
   display: flex;
   flex-direction: column;  
   font-weight: bold;
-  margin: 1.5% 0;
+  margin: 2% 0;
   padding-left: 5%;
   /* background-color: rgba(0, 0, 0, 0.8);
   background: linear-gradient(180deg, rgba(255,255,255, .1), rgba(255,255,255, 0));
@@ -141,7 +141,8 @@ body {
   min-height: 100vh;
 }
 .home-trending-carousel{
-  padding: 2.5% 17%;
+  padding: 2% 17%;
+  padding-top: 4%;
   /* background-color:rgba(255, 255, 255, 0.01); */
 }
 .carousel{
@@ -231,36 +232,31 @@ body {
 
 
 
-/*----------------------------Avatar---------------------*/
+/*----------------------------Profile---------------------*/
 .avatar-icon{
-  border: solid white;
+  border: 2px solid white;
   margin: 0;
   padding: 0;
 }
-
-.profile-card{
-  width: 300px;
-  height: 480px;
-  background: white;
+.profile-page-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+.card{
+  background-color: rgba(27, 27, 27, 0.8);
+  background: linear-gradient(135deg, rgba(255,255,255, .1), rgba(255,255,255, 0));
   border-radius: 10px;
-  box-shadow: 0px 1px 10px 1px black
 }
-.profile-upper-container{
-  height: 100px;
-  background: linear-gradient(to left, blue, green);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+.list-group{
+  background-color: rgba(27, 27, 27, 0.8);
+  background: linear-gradient(135deg, rgba(255,255,255, .1), rgba(255,255,255, 0));
+  border-radius: 10px;
 }
-.profile-img-container{
-  background: white;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  padding: 5px;
-  transform: translate(95px, 45px);
-}
-.profile-lower-container{
-  color: black;
+
+.list-group-item{
+  background-color: rgba(27, 27, 27, 0);
 }
 
 .searched-card-container{
