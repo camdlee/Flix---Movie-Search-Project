@@ -135,7 +135,7 @@ export default function ProfileCard() {
                       <div className="progress rounded" style={{height: 5}}>
                         <div className="progress-bar" role="progressbar" style={{width: '80%'}} aria-valuenow={80} aria-valuemin={0} aria-valuemax={100} />
                       </div>
-                      <p className="mt-4 mb-1" style={{fontSize: '.77rem'}}>Real Housewives of New York</p>
+                      <p className="mt-4 mb-1" style={{fontSize: '.77rem'}}>Real Housewives of New York City</p>
                       <div className="progress rounded" style={{height: 5}}>
                         <div className="progress-bar" role="progressbar" style={{width: '72%'}} aria-valuenow={72} aria-valuemin={0} aria-valuemax={100} />
                       </div>

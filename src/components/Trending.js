@@ -1,15 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Grid from '@mui/material/Grid';
-import MovieCard from './MovieCard';
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
+import { createTheme } from '@mui/material/styles';
 import Carousel from 'react-bootstrap/Carousel';
 
 //https://api.themoviedb.org/3/trending/all/day?api_key=d6e8c594608b69b399328bb6aaf9ae05
@@ -98,12 +89,12 @@ export default function Trending() {
       <Carousel.Item style={{ borderRadius: '20px' }}>
         <img
           className="d-block w-100"
-         src={`https://image.tmdb.org/t/p/w1280${trendingData[2].backdrop_path}`}
+          src={`https://image.tmdb.org/t/p/w1280${trendingData[2].backdrop_path}`}
           alt="Third slide"
           style={{ borderRadius: '20px' }}
         />
         <Carousel.Caption>
-          <h4>{trendingData[2].title}</h4>
+          <h4>{trendingData[2].name}</h4>
           <p>{trendingData[2].overview}</p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -115,20 +106,20 @@ export default function Trending() {
           style={{ borderRadius: '20px' }}
         />
         <Carousel.Caption>
-          <h4>{trendingData[3].title}</h4>
+          <h4>{trendingData[3].name}</h4>
           <p>{trendingData[3].overview}</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item style={{ borderRadius: '20px' }}>
         <img
           className="d-block w-100"
-         src={`https://image.tmdb.org/t/p/w1280${trendingData[4].backdrop_path}`}
+         src={`https://image.tmdb.org/t/p/w1280${trendingData[5].backdrop_path}`}
           alt="Third slide"
           style={{ borderRadius: '20px' }}
         />
         <Carousel.Caption>
-          <h4>{trendingData[4].title}</h4>
-          <p>{trendingData[4].overview}</p>
+          <h4>{trendingData[5].title}</h4>
+          <p>{trendingData[5].overview}</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>        
