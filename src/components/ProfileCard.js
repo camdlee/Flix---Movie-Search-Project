@@ -7,6 +7,7 @@ export default function ProfileCard() {
 
   const [authUser, setAuthUser] = useState('')
 
+  // ---------------------------------useEffect hook to authenticate users-----------------------------------
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
@@ -19,6 +20,12 @@ export default function ProfileCard() {
         }  
       }, [authUser])
       })
+
+  // ---------------------------------function to update profile-----------------------------------
+  
+
+
+
 
   return (
     <div>
