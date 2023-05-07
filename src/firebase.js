@@ -22,3 +22,4 @@ export const auth = getAuth(app);
 
 // Initializing database connection and exporting for use in other files
 export const db = getFirestore(app);
+

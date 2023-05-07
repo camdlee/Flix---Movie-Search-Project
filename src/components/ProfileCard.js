@@ -1,11 +1,12 @@
 import React from 'react';
 import { auth } from '../firebase';
 import { useState, useEffect } from 'react';
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged, updateProfile, signOut } from "firebase/auth";
 
 export default function ProfileCard() {
 
   const [authUser, setAuthUser] = useState('')
+  const [photoURL, setPhotoURL] = useState('')
 
   // ---------------------------------useEffect hook to authenticate users-----------------------------------
   useEffect(() => {
@@ -21,9 +22,11 @@ export default function ProfileCard() {
       }, [authUser])
       })
 
-  // ---------------------------------function to update profile-----------------------------------
-  
-
+  // ---------------------------------function to update profile-----------------------------------  
+  const handleChange = (event) => {
+  }
+  const handleClick = (event) => {
+  }
 
 
 
