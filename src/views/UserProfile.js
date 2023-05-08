@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { onAuthStateChanged, updateProfile, signOut } from "firebase/auth";
 import { auth } from '../firebase';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
@@ -14,7 +15,8 @@ import Container from '@mui/material/Container';
 
 export default function UserProfile() {
 
-  const [authUser, setAuthUser] = useState('')  
+  const [authUser, setAuthUser] = useState('')
+  const [editProfile, setEditProfile] = useState(false)  
 
     // ---------------------------------useEffect hook to authenticate users-----------------------------------
     useEffect(() => {
@@ -30,6 +32,12 @@ export default function UserProfile() {
         }, [authUser])
         })
 
+    // ---------------------------------Update profile info function-----------------------------------
+    const handleSubmit = (event) => {
+      event.preventDefault();
+
+    }
+
   return (
     <div className="profile-page-container">
       <Box className="watchlist-header"
@@ -38,11 +46,20 @@ export default function UserProfile() {
               pb: 4,
               width: '60%',
             }}
-          >          
-              <img src="https://pbs.twimg.com/media/EwnMiM2WgAQAH6y.jpg" alt="avatar" className="rounded-circle img-fluid" style={{width: 150}} />
-              <h2 className="my-3">{authUser.displayName}</h2>
-              <button type="button" className="btn btn-outline-primary">Edit</button>
-          </Box>
+          >    
+          { editProfile ? 
+              <>
+                <Button type='submit' variant="outlined" color="primary">Submit</Button>
+              </>
+            :
+              <div>      
+                <img src="https://pbs.twimg.com/media/EwnMiM2WgAQAH6y.jpg" alt="avatar" className="rounded-circle img-fluid" style={{width: 150}} />
+                <h2 className="my-3">{authUser.displayName}</h2>
+                <h5>{authUser.email}</h5>
+                <button type="button" className="btn btn-outline-primary">Edit</button>
+              </div>
+          }  
+      </Box>
         {/* <ProfileCard/> */}
     </div>
   )

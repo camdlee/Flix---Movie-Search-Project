@@ -16,7 +16,7 @@ export default function Navbar(){
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 setAuthUser(user)
-                console.log(user)
+                // console.log(user)
                 const uid = user.uid;
                 // ...
             } else {
@@ -25,7 +25,6 @@ export default function Navbar(){
     }, [authUser])
     })
 
-    console.log(authUser)
 
     return (
         <div className="nav-div">
