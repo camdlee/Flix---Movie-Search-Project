@@ -12,8 +12,6 @@ import Footer from './components/Footer';
 import Trending from './components/Trending';
 import Navbar from './components/Nav';
 
-// API key: 8f106539
-// http://www.omdbapi.com/?i=tt3896198&apikey=8f106539
 
 
 export default function App() {

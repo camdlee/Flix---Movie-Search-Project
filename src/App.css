@@ -316,6 +316,9 @@ body {
   isolation: isolate;
 }
 .watchlist-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: rgba(27, 27, 27, 0.8);
   background: linear-gradient(135deg, rgba(255,255,255, .1), rgba(255,255,255, 0));
   box-shadow: 0 0 20px 0 rgba(255, 255, 255, 1);
