@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
@@ -102,7 +103,7 @@ export default function SignUp() {
                 }}
                 >
                 <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}>
-                    <LockOutlinedIcon />
+                    <AccountCircleIcon/>
                 </Avatar>
                 <Typography component="h1" variant="h5">
                     Sign up
@@ -170,11 +171,11 @@ export default function SignUp() {
                     Sign Up
                     </Button>
                     <Grid container>
-                    <Grid item>
-                        <Link to="/signin" variant="body2">
-                            Already have an account? Sign in
-                        </Link>
-                    </Grid>
+                        <Grid item>
+                            <Link to="/signin" variant="body2">
+                                Already have an account? Sign in
+                            </Link>
+                        </Grid>
                     </Grid>
                 </Box>
                 </Box>
