@@ -2,6 +2,7 @@
 
 This project was created with CSS, React JS and Firebase and utilizes The Movie Database API.
 It allows users to create profiles, explore trending movies and shows, and add favorites to a watch list for later.
+Site Deployed: https://flix-movie-explorer.netlify.app/
 
 ![Landing_Page](src/static/project/flix-landing-page.JPG)
 
